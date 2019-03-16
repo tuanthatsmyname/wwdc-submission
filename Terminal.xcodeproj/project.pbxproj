@@ -40,6 +40,7 @@
 		BED965A6223DA5F4003451E6 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965A5223DA5F4003451E6 /* Folder.swift */; };
 		BED965A8223DA609003451E6 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965A7223DA609003451E6 /* File.swift */; };
 		BED965AA223DA6CA003451E6 /* TerminalElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965A9223DA6CA003451E6 /* TerminalElement.swift */; };
+		BED965AC223DBDA8003451E6 /* TerminalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965AB223DBDA8003451E6 /* TerminalSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -145,6 +146,7 @@
 		BED965A5223DA5F4003451E6 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		BED965A7223DA609003451E6 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		BED965A9223DA6CA003451E6 /* TerminalElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalElement.swift; sourceTree = "<group>"; };
+		BED965AB223DBDA8003451E6 /* TerminalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 				960FFD85223A7898001750E8 /* LiveViewController_1_2.swift */,
 				960FFD87223A789F001750E8 /* LiveViewController_1_3.swift */,
 				BED965A3223DA5C9003451E6 /* Terminal.swift */,
+				BED965AB223DBDA8003451E6 /* TerminalSettings.swift */,
 				BED965A9223DA6CA003451E6 /* TerminalElement.swift */,
 				BED965A5223DA5F4003451E6 /* Folder.swift */,
 				BED965A7223DA609003451E6 /* File.swift */,
@@ -483,6 +486,7 @@
 				960FFD86223A7898001750E8 /* LiveViewController_1_2.swift in Sources */,
 				BED965A8223DA609003451E6 /* File.swift in Sources */,
 				960FFD88223A789F001750E8 /* LiveViewController_1_3.swift in Sources */,
+				BED965AC223DBDA8003451E6 /* TerminalSettings.swift in Sources */,
 				BED965A6223DA5F4003451E6 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

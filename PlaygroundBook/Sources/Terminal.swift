@@ -8,14 +8,15 @@
 import Foundation
 
 class Terminal {
+    
     var rootFolder: Folder
-//    var levelOfNesting: [Folder]
     var currentFolder: Folder
+    var settings: TerminalSettings
 
-    init(rootFolder: Folder, currentFolder: Folder) {
+    init(rootFolder: Folder, settings: TerminalSettings) {
         self.rootFolder = rootFolder
-//        self.levelOfNesting = [rootFolder]
-        self.currentFolder = currentFolder
+        self.currentFolder = rootFolder
+        self.settings = settings
     }
     
     private func setupTerminal() {
