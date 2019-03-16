@@ -36,6 +36,10 @@
 		9686CA0222391AE600E56BAB /* PublicResources in Resources */ = {isa = PBXBuildFile; fileRef = 9686CA0122391AE600E56BAB /* PublicResources */; };
 		9686CA0322391B0700E56BAB /* PublicResources in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 9686CA0122391AE600E56BAB /* PublicResources */; };
 		96EB86AE22393C0D0000332C /* USAGE.md in Resources */ = {isa = PBXBuildFile; fileRef = 96EB86AD22393C0D0000332C /* USAGE.md */; };
+		BED965A4223DA5C9003451E6 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965A3223DA5C9003451E6 /* Terminal.swift */; };
+		BED965A6223DA5F4003451E6 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965A5223DA5F4003451E6 /* Folder.swift */; };
+		BED965A8223DA609003451E6 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965A7223DA609003451E6 /* File.swift */; };
+		BED965AA223DA6CA003451E6 /* TerminalElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965A9223DA6CA003451E6 /* TerminalElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -137,6 +141,10 @@
 		960FFDB4223D8A40001750E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9686CA0122391AE600E56BAB /* PublicResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PublicResources; sourceTree = "<group>"; };
 		96EB86AD22393C0D0000332C /* USAGE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = USAGE.md; sourceTree = "<group>"; };
+		BED965A3223DA5C9003451E6 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
+		BED965A5223DA5F4003451E6 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		BED965A7223DA609003451E6 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		BED965A9223DA6CA003451E6 /* TerminalElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +295,10 @@
 				960FFD83223A77DD001750E8 /* LiveViewController_1_1.swift */,
 				960FFD85223A7898001750E8 /* LiveViewController_1_2.swift */,
 				960FFD87223A789F001750E8 /* LiveViewController_1_3.swift */,
+				BED965A3223DA5C9003451E6 /* Terminal.swift */,
+				BED965A9223DA6CA003451E6 /* TerminalElement.swift */,
+				BED965A5223DA5F4003451E6 /* Folder.swift */,
+				BED965A7223DA609003451E6 /* File.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -466,8 +478,12 @@
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
 				5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */,
 				960FFD84223A77DD001750E8 /* LiveViewController_1_1.swift in Sources */,
+				BED965AA223DA6CA003451E6 /* TerminalElement.swift in Sources */,
+				BED965A4223DA5C9003451E6 /* Terminal.swift in Sources */,
 				960FFD86223A7898001750E8 /* LiveViewController_1_2.swift in Sources */,
+				BED965A8223DA609003451E6 /* File.swift in Sources */,
 				960FFD88223A789F001750E8 /* LiveViewController_1_3.swift in Sources */,
+				BED965A6223DA5F4003451E6 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,7 +31,7 @@ import Foundation
 
 
 //#-end-hidden-code
-let str = "Hello, playground"
+let str = "Hello, page 2"
 
 
 
