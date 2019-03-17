@@ -22,4 +22,30 @@ class Terminal {
     private func setupTerminal() {
         
     }
+    
+    func cd(parameter: String) {
+        
+    }
+    
+    func ls(parameter: String) {
+        
+    }
 }
+
+//class NetworkManager {
+//
+//    static let shared = NetworkManager()
+//
+//    let timeStamp: String
+//
+//    private init() {
+//
+//        let formatter = DateFormatter()
+//        formatter.timeZone = TimeZone.current
+//        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        self.timeStamp = formatter.string(from: Date())
+//    }
+//
+//}
+//
+//let timestamp = NetworkManager.shared.timeStamp

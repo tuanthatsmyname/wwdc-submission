@@ -10,10 +10,13 @@ import Foundation
 import PlaygroundSupport
 
 public class LiveViewController_1_3: LiveViewController {
+    @IBOutlet weak var label: UILabel!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        label.text = "\(NetworkManager.shared.timeStamp)"
+        label.text = timestamp
+//        label.text = "wtf3"
     }
     
     override public func receive(_ message: PlaygroundValue) {

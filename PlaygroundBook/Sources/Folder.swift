@@ -16,7 +16,6 @@ class Folder: TerminalElement {
         self.elements = elements
         self.parentFolder = parentFolder
         super.init(permissions: permissions, numberOfLinks: numberOfLinks, ownerName: ownerName, ownerGroup: ownerGroup, size: size, timeOfLastModification: timeOfLastModification, name: name)
-    
     }
     
 }
