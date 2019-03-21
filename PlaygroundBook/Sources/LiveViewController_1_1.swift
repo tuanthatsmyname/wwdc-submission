@@ -19,6 +19,7 @@ public class LiveViewController_1_1: LiveViewController {
     var result: NSMutableAttributedString!
     var timer: Timer!
     let lineSpacing = NSMutableParagraphStyle()
+    var resultString = "Hi there, welcome to my Playground! Let's choose your own terminal settings and we can start!"
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,8 @@ public class LiveViewController_1_1: LiveViewController {
         boldAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)-Bold", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
         normalAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
         prompt = NSMutableAttributedString(string: "\(terminalSettings.username)-mac: \(terminalSettings.currentPath) $ ", attributes: boldAttributes)
-        result = NSMutableAttributedString(string: "Hi there, welcome to my Playground! Let's choose your own terminal settings and we can start!", attributes: normalAttributes)
+        // TODO: check the text with someone
+        result = NSMutableAttributedString(string: resultString, attributes: normalAttributes)
     }
     
     private func runCommand() {
@@ -66,8 +68,8 @@ public class LiveViewController_1_1: LiveViewController {
 //                    self.terminalTextView.scrollRangeToVisible(range)
 //                }
             }
-            
-            if counter == 9 {
+            // show just 5 times
+            if counter == 5 {
                 timer.invalidate()
             }
         }
@@ -80,7 +82,8 @@ public class LiveViewController_1_1: LiveViewController {
             boldAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)-Bold", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
             normalAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
             prompt = NSMutableAttributedString(string: "\(terminalSettings.username)-mac: \(terminalSettings.currentPath) $ ", attributes: boldAttributes)
-            result = NSMutableAttributedString(string: "Hi there, welcome to my Playground! Let's choose your own terminal settings and we can start!", attributes: normalAttributes)
+            // TODO: check the text with someone
+            result = NSMutableAttributedString(string: "Well done!", attributes: normalAttributes)
             view.backgroundColor = terminalSettings.backgroundColor
             DataManager.saveTerminalSettings(of: terminalSettings)
             timer.invalidate()

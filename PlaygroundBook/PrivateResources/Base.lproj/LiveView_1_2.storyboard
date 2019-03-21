@@ -18,22 +18,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LiveView_1_2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6a-7e-CMz">
-                                <rect key="frame" x="139.5" y="323" width="96" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ntq-wZ-OEt">
+                                <rect key="frame" x="20" y="90" width="335" height="507"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="h6a-7e-CMz" firstAttribute="centerX" secondItem="Rh2-0a-zph" secondAttribute="centerX" id="DgE-dK-YaV"/>
-                            <constraint firstItem="h6a-7e-CMz" firstAttribute="centerY" secondItem="Rh2-0a-zph" secondAttribute="centerY" id="rsb-9d-7m1"/>
+                            <constraint firstItem="qaR-nP-dw0" firstAttribute="trailing" secondItem="Ntq-wZ-OEt" secondAttribute="trailing" constant="20" id="7Lf-ZM-iDs"/>
+                            <constraint firstItem="Ntq-wZ-OEt" firstAttribute="leading" secondItem="qaR-nP-dw0" secondAttribute="leading" constant="20" id="DSy-AO-hjw"/>
+                            <constraint firstItem="qaR-nP-dw0" firstAttribute="bottom" secondItem="Ntq-wZ-OEt" secondAttribute="bottom" constant="70" id="TjS-lh-3bq"/>
+                            <constraint firstItem="Ntq-wZ-OEt" firstAttribute="top" secondItem="qaR-nP-dw0" secondAttribute="top" constant="70" id="aEE-x2-SMp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qaR-nP-dw0"/>
                     </view>
                     <connections>
-                        <outlet property="label" destination="h6a-7e-CMz" id="Qcs-rh-dld"/>
+                        <outlet property="terminalTextView" destination="Ntq-wZ-OEt" id="uC5-nd-ohu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvi-wC-fap" userLabel="First Responder" sceneMemberID="firstResponder"/>
