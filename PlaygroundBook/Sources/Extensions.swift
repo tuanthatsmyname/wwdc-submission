@@ -31,6 +31,7 @@ extension UITextView {
         }
     }
     
+    // TODO
     func type(command: String, result: String) {
         
     }

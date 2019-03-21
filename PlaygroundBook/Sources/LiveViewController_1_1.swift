@@ -53,10 +53,7 @@ public class LiveViewController_1_1: LiveViewController {
                 attributedText.append(prompt)
                 self.terminalTextView.attributedText = attributedText
                 index = 0
-                let bottom = self.terminalTextView.contentSize.height
-                if bottom > self.terminalTextView.frame.height {
-//                                    let bottom = NSMakeRange(textLog.text.count - 1, 1)
-//                                    textLog.scrollRangeToVisible(bottom)
+                if self.terminalTextView.contentSize.height > self.terminalTextView.frame.height {
                     let b = NSMakeRange(self.terminalTextView.attributedText.length - 1, 1)
                     self.terminalTextView.scrollRangeToVisible(b)
                 }
@@ -72,7 +69,7 @@ public class LiveViewController_1_1: LiveViewController {
             computerName = "\(terminalSettings.username)-mac"
             view.backgroundColor = terminalSettings.backgroundColor
             terminalTextView.textColor = terminalSettings.textColor
-            terminalTextView.font = UIFont(name: terminalSettings.fontName, size: CGFloat(terminalSettings.textSize))
+            terminalTextView.font = UIFont(name: terminalSettings.textFont, size: CGFloat(terminalSettings.textSize))
         }
     }
 }

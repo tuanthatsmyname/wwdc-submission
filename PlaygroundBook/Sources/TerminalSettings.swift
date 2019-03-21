@@ -22,13 +22,6 @@ public struct Color: Codable {
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
     
-    public func show() {
-        print(red)
-        print(green)
-        print(blue)
-        print(alpha)
-    }
-    
     public init(uiColor: UIColor) {
         uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
     }
@@ -36,17 +29,28 @@ public struct Color: Codable {
 
 public struct TerminalSettings {
     public var textColor: UIColor
-    public var textSize: Int
+    public var textSize: CGFloat
     public var backgroundColor: UIColor
     public var username: String
-    public var fontName: String
+    public var textFont: String
+    public var currentPath: String
     
-    public init(textColor: UIColor, textSize: Int, backgroundColor: UIColor, username: String, fontName: String) {
+    public init(textColor: UIColor, textSize: CGFloat, backgroundColor: UIColor, username: String, textFont: String) {
         self.textColor = textColor
         self.textSize = textSize
         self.backgroundColor = backgroundColor
         self.username = username
-        self.fontName = fontName
+        self.textFont = textFont
+        self.currentPath = "/Users/\(username)"
+    }
+    
+    public init() {
+        self.textColor = .white
+        self.textSize = 16.0
+        self.backgroundColor = .black
+        self.username = "TuanTuDo"
+        self.textFont = Fonts.menlo.rawValue
+        self.currentPath = "/Users/TuanTuDo"
     }
     
 }
@@ -58,16 +62,18 @@ extension TerminalSettings: Codable {
         case textSize
         case backgroundColor
         case username
-        case fontName
+        case textFont
+        case currentPath
     }
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         textColor = try container.decode(Color.self, forKey: .textColor).uiColor
-        textSize = try container.decode(Int.self, forKey: .textSize)
+        textSize = try container.decode(CGFloat.self, forKey: .textSize)
         backgroundColor = try container.decode(Color.self, forKey: .backgroundColor).uiColor
         username = try container.decode(String.self, forKey: .username)
-        fontName = try container.decode(String.self, forKey: .fontName)
+        textFont = try container.decode(String.self, forKey: .textFont)
+        currentPath = try container.decode(String.self, forKey: .currentPath)
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -76,7 +82,8 @@ extension TerminalSettings: Codable {
         try container.encode(textSize, forKey: .textSize)
         try container.encode(Color(uiColor: backgroundColor), forKey: .backgroundColor)
         try container.encode(username, forKey: .username)
-        try container.encode(fontName, forKey: .fontName)
+        try container.encode(textFont, forKey: .textFont)
+        try container.encode(currentPath, forKey: .currentPath)
     }
     
 }
