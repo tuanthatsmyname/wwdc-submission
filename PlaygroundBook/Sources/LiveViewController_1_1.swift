@@ -37,16 +37,29 @@ public class LiveViewController_1_1: LiveViewController {
         terminalTextView.attributedText = prompt
         let command = "cat ./welcome.txt"
         
-        let _ = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { timer in
+        let _ = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
             if index < command.characters.count {
-                var attributedText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
+                let attributedText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
                 attributedText.append(NSMutableAttributedString(string: String(command.characters[index]), attributes: [.font : UIFont(name: "Menlo", size: 20)!, .foregroundColor : UIColor.white]))
                 self.terminalTextView.attributedText = attributedText
             }
             index += 1
             if index == command.characters.count + 1 {
-                timer.invalidate()
-                // print result and prompt
+//                timer.invalidate()
+                let result = NSMutableAttributedString(string: "\nWelcome to my Playground! Let's choose your own terminal settings and we can start!", attributes: [.font : UIFont(name: "Menlo", size: 20)!, .foregroundColor : UIColor.white])
+                let prompt = NSMutableAttributedString(string: "\ntuantudo-mac: /WWDC/playground/ $ ", attributes: [.font : UIFont(name: "Menlo-Bold", size: 20)!, .foregroundColor : UIColor.white])
+                let attributedText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
+                attributedText.append(result)
+                attributedText.append(prompt)
+                self.terminalTextView.attributedText = attributedText
+                index = 0
+                let bottom = self.terminalTextView.contentSize.height
+                if bottom > self.terminalTextView.frame.height {
+//                                    let bottom = NSMakeRange(textLog.text.count - 1, 1)
+//                                    textLog.scrollRangeToVisible(bottom)
+                    let b = NSMakeRange(self.terminalTextView.attributedText.length - 1, 1)
+                    self.terminalTextView.scrollRangeToVisible(b)
+                }
             }
         }
         
@@ -61,44 +74,5 @@ public class LiveViewController_1_1: LiveViewController {
             terminalTextView.textColor = terminalSettings.textColor
             terminalTextView.font = UIFont(name: terminalSettings.fontName, size: CGFloat(terminalSettings.textSize))
         }
-    }
-}
-
-extension UITextView {
-    func typeOn(string: String) {
-        let characterArray = string.characters
-        var characterIndex = 0
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
-            if characterArray[characterIndex] != "$" {
-                while characterArray[characterIndex] == " " {
-                    self.text.append(" ")
-                    characterIndex += 1
-                    if characterIndex == characterArray.count {
-                        timer.invalidate()
-                        return
-                    }
-                }
-                self.text.append(characterArray[characterIndex])
-            }
-            characterIndex += 1
-            if characterIndex == characterArray.count {
-                timer.invalidate()
-            }
-        }
-    }
-    
-    func type(command: String, result: String) {
-        
-    }
-    
-}
-
-extension String {
-    var characters: [Character] {
-        var characters = [Character]()
-        for character in self {
-            characters.append(character)
-        }
-        return characters
     }
 }
