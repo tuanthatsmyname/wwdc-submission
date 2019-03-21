@@ -42,6 +42,7 @@
 		BED965AA223DA6CA003451E6 /* TerminalElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965A9223DA6CA003451E6 /* TerminalElement.swift */; };
 		BED965AC223DBDA8003451E6 /* TerminalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965AB223DBDA8003451E6 /* TerminalSettings.swift */; };
 		BEE3D6B02243FD240048E465 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3D6AF2243FD240048E465 /* Extensions.swift */; };
+		BEE3D6B2224441B60048E465 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3D6B1224441B60048E465 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -149,6 +150,7 @@
 		BED965A9223DA6CA003451E6 /* TerminalElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalElement.swift; sourceTree = "<group>"; };
 		BED965AB223DBDA8003451E6 /* TerminalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalSettings.swift; sourceTree = "<group>"; };
 		BEE3D6AF2243FD240048E465 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BEE3D6B1224441B60048E465 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 				BED965A5223DA5F4003451E6 /* Folder.swift */,
 				BED965A7223DA609003451E6 /* File.swift */,
 				BEE3D6AF2243FD240048E465 /* Extensions.swift */,
+				BEE3D6B1224441B60048E465 /* DataManager.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E3196F32061DEA40077BBD7 /* LiveViewSupport.swift in Sources */,
+				BEE3D6B2224441B60048E465 /* DataManager.swift in Sources */,
 				5EF2F9AE2054BBF300191409 /* LiveViewController.swift in Sources */,
 				960FFD84223A77DD001750E8 /* LiveViewController_1_1.swift in Sources */,
 				BED965AA223DA6CA003451E6 /* TerminalElement.swift in Sources */,

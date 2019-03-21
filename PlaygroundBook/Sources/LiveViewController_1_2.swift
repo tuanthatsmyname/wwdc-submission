@@ -14,9 +14,11 @@ public class LiveViewController_1_2: LiveViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-//        label.text = "\(NetworkManager.shared.timeStamp)"
-//        label.text = timestamp
-//        label.text = "wtf2"
+        
+        if let _ = DataManager.loadTerminalSettings() {
+            view.backgroundColor = .blue
+        }
+        
     }
     
     override public func receive(_ message: PlaygroundValue) {

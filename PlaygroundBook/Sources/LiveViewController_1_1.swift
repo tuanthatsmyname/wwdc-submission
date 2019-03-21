@@ -12,64 +12,79 @@ import PlaygroundSupport
 public class LiveViewController_1_1: LiveViewController {
     
     @IBOutlet weak var terminalTextView: UITextView!
-    var computerName = "TuanTuDo-mac"
-    var currentPath = "/WWDC/playground"
-    var command = "cat ./welcome.txt"
+    var terminalSettings = TerminalSettings()
+    var boldAttributes: [NSAttributedString.Key : Any]!
+    var normalAttributes: [NSAttributedString.Key : Any]!
+    var prompt: NSMutableAttributedString!
+    var result: NSMutableAttributedString!
+    var timer: Timer!
+    let lineSpacing = NSMutableParagraphStyle()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
         setupTerminalTextView()
+        runCommand()
     }
     
     private func setupTerminalTextView() {
-//        terminalTextView.font = UIFont(name: "Menlo", size: 25)
+        view.backgroundColor = terminalSettings.backgroundColor
         terminalTextView.backgroundColor = .clear
         terminalTextView.isEditable = false
         terminalTextView.isUserInteractionEnabled = false
-//        terminalTextView.text = "tuantudo-mac: /WWDC/playground/ $ ls welcome.txt"
-        showText()
+        lineSpacing.lineSpacing = 5
+        boldAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)-Bold", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
+        normalAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
+        prompt = NSMutableAttributedString(string: "\(terminalSettings.username)-mac: \(terminalSettings.currentPath) $ ", attributes: boldAttributes)
+        result = NSMutableAttributedString(string: "Hi there, welcome to my Playground! Let's choose your own terminal settings and we can start!", attributes: normalAttributes)
     }
     
-    private func showText() {
+    private func runCommand() {
         var index = 0
-        let prompt = NSMutableAttributedString(string: "tuantudo-mac: /WWDC/playground/ $ ", attributes: [.font : UIFont(name: "Menlo-Bold", size: 20)!, .foregroundColor : UIColor.white])
-        terminalTextView.attributedText = prompt
+        var counter = 0
         let command = "cat ./welcome.txt"
-        
-        let _ = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { timer in
+        terminalTextView.attributedText = prompt
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             if index < command.characters.count {
-                let attributedText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
-                attributedText.append(NSMutableAttributedString(string: String(command.characters[index]), attributes: [.font : UIFont(name: "Menlo", size: 20)!, .foregroundColor : UIColor.white]))
-                self.terminalTextView.attributedText = attributedText
+                let attributedTextViewText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
+                attributedTextViewText.append(NSMutableAttributedString(string: String(command.characters[index]), attributes: self.normalAttributes))
+                self.terminalTextView.attributedText = attributedTextViewText
             }
+            
             index += 1
-            if index == command.characters.count + 1 {
-//                timer.invalidate()
-                let result = NSMutableAttributedString(string: "\nWelcome to my Playground! Let's choose your own terminal settings and we can start!", attributes: [.font : UIFont(name: "Menlo", size: 20)!, .foregroundColor : UIColor.white])
-                let prompt = NSMutableAttributedString(string: "\ntuantudo-mac: /WWDC/playground/ $ ", attributes: [.font : UIFont(name: "Menlo-Bold", size: 20)!, .foregroundColor : UIColor.white])
-                let attributedText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
-                attributedText.append(result)
-                attributedText.append(prompt)
-                self.terminalTextView.attributedText = attributedText
+            
+            if index == command.characters.count + 3 {
                 index = 0
-                if self.terminalTextView.contentSize.height > self.terminalTextView.frame.height {
-                    let b = NSMakeRange(self.terminalTextView.attributedText.length - 1, 1)
-                    self.terminalTextView.scrollRangeToVisible(b)
-                }
+                let attributedTextViewText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
+                attributedTextViewText.append(NSMutableAttributedString(string: "\n"))
+                attributedTextViewText.append(self.result)
+                attributedTextViewText.append(NSMutableAttributedString(string: "\n"))
+                attributedTextViewText.append(self.prompt)
+                self.terminalTextView.attributedText = attributedTextViewText
+                counter += 1
+//                if self.terminalTextView.contentSize.height > self.terminalTextView.frame.height {
+//                    let range = NSMakeRange(self.terminalTextView.attributedText.length - 1, 1)
+//                    self.terminalTextView.scrollRangeToVisible(range)
+//                }
+            }
+            
+            if counter == 9 {
+                timer.invalidate()
             }
         }
-        
     }
-    
-     override public func receive(_ message: PlaygroundValue) {
+
+    override public func receive(_ message: PlaygroundValue) {
         guard case .data(let messageData) = message else { return }
         let decoder = JSONDecoder()
         if let terminalSettings = try? decoder.decode(TerminalSettings.self, from: messageData) {
-            computerName = "\(terminalSettings.username)-mac"
+            boldAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)-Bold", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
+            normalAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
+            prompt = NSMutableAttributedString(string: "\(terminalSettings.username)-mac: \(terminalSettings.currentPath) $ ", attributes: boldAttributes)
+            result = NSMutableAttributedString(string: "Hi there, welcome to my Playground! Let's choose your own terminal settings and we can start!", attributes: normalAttributes)
             view.backgroundColor = terminalSettings.backgroundColor
-            terminalTextView.textColor = terminalSettings.textColor
-            terminalTextView.font = UIFont(name: terminalSettings.textFont, size: CGFloat(terminalSettings.textSize))
+            DataManager.saveTerminalSettings(of: terminalSettings)
+            timer.invalidate()
+            runCommand()
         }
     }
 }

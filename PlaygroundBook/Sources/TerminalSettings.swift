@@ -35,12 +35,12 @@ public struct TerminalSettings {
     public var textFont: String
     public var currentPath: String
     
-    public init(textColor: UIColor, textSize: CGFloat, backgroundColor: UIColor, username: String, textFont: String) {
+    public init(textColor: UIColor, textSize: CGFloat, backgroundColor: UIColor, username: String, textFont: Fonts) {
         self.textColor = textColor
         self.textSize = textSize
         self.backgroundColor = backgroundColor
         self.username = username
-        self.textFont = textFont
+        self.textFont = textFont.rawValue
         self.currentPath = "/Users/\(username)"
     }
     
