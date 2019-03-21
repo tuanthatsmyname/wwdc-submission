@@ -9,6 +9,7 @@
 
 //Messaging from Page to Live View:
 import Foundation
+import UIKit
 //Use the call below to send a message with an object to the LiveView of this page. Import Foundation is required.
 //sendValue(.data(try NSKeyedArchiver.archivedData(withRootObject: /*YourObject*/, requiringSecureCoding: true)))
 
@@ -31,7 +32,14 @@ import Foundation
 
 
 //#-end-hidden-code
-let str = "Hello, page 1"
 
+let name = /*#-editable-code*/<#T##your name##String#>/*#-end-editable-code*/
+let textSize = /*#-editable-code*/<#T##size of the text##String#>/*#-end-editable-code*/
+let textColor = /*#-editable-code*/#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)/*#-end-editable-code*/
+let backgroundColor = /*#-editable-code*/#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)/*#-end-editable-code*/
 
-
+//#-hidden-code
+let terminalSettings = TerminalSettings(textColor: textColor, textSize: textSize, backgroundColor: backgroundColor, username: name)
+let encoder = JSONEncoder()
+sendValue(.data(try encoder.encode(terminalSettings)))
+//#-end-hidden-code

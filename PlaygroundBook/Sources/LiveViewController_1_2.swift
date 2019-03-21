@@ -15,7 +15,7 @@ public class LiveViewController_1_2: LiveViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 //        label.text = "\(NetworkManager.shared.timeStamp)"
-        label.text = timestamp
+//        label.text = timestamp
 //        label.text = "wtf2"
     }
     
