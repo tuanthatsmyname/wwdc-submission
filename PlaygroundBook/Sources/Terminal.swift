@@ -30,6 +30,12 @@ public class Terminal {
         self.username = username
     }
     
+    public init(currentPath: String, username: String) {
+        self.paths = DataManager.loadHierarchy(with: username)
+        self.currentPath = currentPath
+        self.username = username
+    }
+    
     // execute command given by the user
     public func execute(command: String) -> String? {
         

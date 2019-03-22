@@ -35,6 +35,22 @@ public struct TerminalSettings {
     public var textFont: String
     public var currentPath: String
     
+    public var boldAttributes: [NSAttributedString.Key : Any] {
+        let lineSpacing = NSMutableParagraphStyle()
+        lineSpacing.lineSpacing = 5
+        return [.font : UIFont(name: "\(textFont)-Bold", size: textSize)!, .foregroundColor : textColor, .paragraphStyle : lineSpacing]
+    }
+    
+    public var normalAttributes: [NSAttributedString.Key : Any] {
+        let lineSpacing = NSMutableParagraphStyle()
+        lineSpacing.lineSpacing = 5
+        return [.font : UIFont(name: "\(textFont)", size: textSize)!, .foregroundColor : textColor, .paragraphStyle : lineSpacing]
+    }
+    
+    public var prompt: NSMutableAttributedString {
+        return NSMutableAttributedString(string: "\(username)-mac: \(currentPath) $ ", attributes: boldAttributes)
+    }
+    
     public init(textColor: UIColor, textSize: CGFloat, backgroundColor: UIColor, username: String, textFont: Fonts) {
         self.textColor = textColor
         self.textSize = textSize
