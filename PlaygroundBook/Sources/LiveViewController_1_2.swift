@@ -17,6 +17,8 @@ public class LiveViewController_1_2: LiveViewController {
     var prompt: NSMutableAttributedString!
     var timer: Timer!
     let lineSpacing = NSMutableParagraphStyle()
+    var terminal: Terminal!
+    var counter = 0
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,24 +43,49 @@ public class LiveViewController_1_2: LiveViewController {
         boldAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)-Bold", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
         normalAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
         prompt = NSMutableAttributedString(string: "\(terminalSettings.username)-mac: \(terminalSettings.currentPath) $ ", attributes: boldAttributes)
+        terminal = Terminal(paths: DataManager.loadHierarchy(with: terminalSettings.username), currentPath: terminalSettings.currentPath, username: terminalSettings.username)
     }
     
     private func showPrompt() {
-        var index = 0
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
-            if index % 2 == 0 {
+            if self.counter % 2 == 0 {
                 self.terminalTextView.attributedText = self.prompt
             } else {
                 let attributedString = NSMutableAttributedString(attributedString: self.prompt)
                 attributedString.append(NSMutableAttributedString(string: "|", attributes: self.boldAttributes))
                 self.terminalTextView.attributedText = attributedString
             }
-            index += 1
+            self.counter += 1
         }
     }
     
-    private func executeCommand(from: String) {
-//        timer.invalidate()
+    private func executeCommand(command: String) {
+        timer.invalidate()
+        var index = 0
+        
+        let _ = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            // delete "|" from the animation
+            let attributedText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
+            attributedText.append(NSMutableAttributedString(string: String(command.characters[index]), attributes: self.normalAttributes))
+            self.terminalTextView.attributedText = attributedText
+            // TODO: scroll
+
+            index += 1
+
+            if index == command.characters.count {
+                timer.invalidate()
+                let attributedText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
+                attributedText.append(NSMutableAttributedString(string: "\n"))
+                if let result = self.terminal.execute(command: command) {
+                    attributedText.append(NSMutableAttributedString(string: result, attributes: self.normalAttributes))
+                    self.prompt = NSMutableAttributedString(string: "\(self.terminal.username)-mac: \(self.terminal.currentPath) $ ", attributes: self.boldAttributes)
+                }
+                attributedText.append(self.prompt)
+                self.terminalTextView.attributedText = attributedText
+            }
+
+
+        }
     }
     
     override public func receive(_ message: PlaygroundValue) {
@@ -67,7 +94,7 @@ public class LiveViewController_1_2: LiveViewController {
         
         do {
             if let command = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(messageData) as? String {
-                executeCommand(from: command)
+                executeCommand(command: command)
             }
         } catch let error { fatalError("\(error) Unable to receive the message from the Playground page") }
         
