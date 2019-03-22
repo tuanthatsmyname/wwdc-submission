@@ -7,13 +7,11 @@
 
 import Foundation
 
-class File: TerminalElement {
+public class File: TerminalElement {
     
-    var type: String
-    var content: String
+    public var content: String
     
-    init(permissions: String, numberOfLinks: Int, ownerName: String, ownerGroup: String, size: Int, timeOfLastModification: Date, name: String, type: String, content: String) {
-        self.type = type
+    public init(permissions: String, numberOfLinks: Int, ownerName: String, ownerGroup: String, size: Int, timeOfLastModification: Date, name: String, content: String) {
         self.content = content
         super.init(permissions: permissions, numberOfLinks: numberOfLinks, ownerName: ownerName, ownerGroup: ownerGroup, size: size, timeOfLastModification: timeOfLastModification, name: name)
     }

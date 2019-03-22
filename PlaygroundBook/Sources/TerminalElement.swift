@@ -7,17 +7,17 @@
 
 import Foundation
 
-class TerminalElement {
+public class TerminalElement {
     
-    var permissions: String
-    var numberOfLinks: Int
-    var ownerName: String
-    var ownerGroup: String
-    var size: Int
-    var timeOfLastModification: Date
-    var name: String
+    public var permissions: String
+    public var numberOfLinks: Int
+    public var ownerName: String
+    public var ownerGroup: String
+    public var size: Int
+    public var timeOfLastModification: Date
+    public var name: String
     
-    init(permissions: String, numberOfLinks: Int, ownerName: String, ownerGroup: String, size: Int, timeOfLastModification: Date, name: String) {
+    public init(permissions: String, numberOfLinks: Int, ownerName: String, ownerGroup: String, size: Int, timeOfLastModification: Date, name: String) {
         self.permissions = permissions
         self.numberOfLinks = numberOfLinks
         self.ownerName = ownerName
@@ -25,6 +25,10 @@ class TerminalElement {
         self.size = size
         self.timeOfLastModification = timeOfLastModification
         self.name = name
+    }
+    
+    public func print() -> String {
+        return "\(permissions) \(numberOfLinks) \(ownerName) \(ownerGroup) \(size) \(timeOfLastModification) \(name)"
     }
     
 }

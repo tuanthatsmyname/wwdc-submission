@@ -31,4 +31,19 @@ public class DataManager {
         return settings
     }
     
+    public static func saveTerminalHistory(from history: NSMutableAttributedString) {
+        PlaygroundKeyValueStore.current["terminalHistory"] = .data(try! NSKeyedArchiver.archivedData(withRootObject: history, requiringSecureCoding: true))
+    }
+    
+    public static func loadTerminalHistory() -> NSMutableAttributedString? {
+        var terminalHistory: NSMutableAttributedString? = nil
+        if let value = PlaygroundKeyValueStore.current["terminalHistory"], case .data(let data) = value {
+            guard let history = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? NSMutableAttributedString else {
+                return nil
+            }
+            terminalHistory = history
+        }
+        return terminalHistory
+    }
+    
 }

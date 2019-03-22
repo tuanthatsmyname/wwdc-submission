@@ -7,15 +7,11 @@
 
 import Foundation
 
-class Folder: TerminalElement {
+public class Folder: TerminalElement {
+    public var parentFolderPath: String
     
-    var elements: [String : TerminalElement]
-    unowned var parentFolder: Folder
-    
-    init(permissions: String, numberOfLinks: Int, ownerName: String, ownerGroup: String, size: Int, timeOfLastModification: Date, name: String, elements: [String : TerminalElement], parentFolder: Folder) {
-        self.elements = elements
-        self.parentFolder = parentFolder
+    public init(permissions: String, numberOfLinks: Int, ownerName: String, ownerGroup: String, size: Int, timeOfLastModification: Date, name: String, parentFolderPath: String) {
+        self.parentFolderPath = parentFolderPath
         super.init(permissions: permissions, numberOfLinks: numberOfLinks, ownerName: ownerName, ownerGroup: ownerGroup, size: size, timeOfLastModification: timeOfLastModification, name: name)
     }
-    
 }
