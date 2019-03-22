@@ -6,28 +6,29 @@
 //
 
 import Foundation
+import PlaygroundSupport
 
 public class DataManager {
     public static func saveTerminalSettings(of settings: TerminalSettings) {
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(settings) {
-            UserDefaults.standard.setValue(data, forKey: "terminalSettings")
+            PlaygroundKeyValueStore.current["terminalSettings"] = .data(data)
         }
+        
     }
     
     public static func loadTerminalSettings() -> TerminalSettings? {
         let decoder = JSONDecoder()
-        
-        guard let data = UserDefaults.standard.object(forKey: "terminalSettings") as? Data else {
-            return nil
-        }
-
-        guard let terminalSettings = try? decoder.decode(TerminalSettings.self, from: data) else {
-            return nil
+    
+        var settings: TerminalSettings? = nil
+        if let value = PlaygroundKeyValueStore.current["terminalSettings"], case .data(let data) = value {
+            guard let terminalSettings = try? decoder.decode(TerminalSettings.self, from: data) else {
+                return nil
+            }
+            settings = terminalSettings
         }
     
-        return terminalSettings
+        return settings
     }
-    
     
 }

@@ -15,13 +15,18 @@ public class LiveViewController_1_2: LiveViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupTerminalTextView()
-//        if let _ = DataManager.loadTerminalSettings() {
-//            view.backgroundColor = .blue
-//        }
         
     }
     
     private func setupTerminalTextView() {
+        if let _ = DataManager.loadTerminalSettings() {
+            view.backgroundColor = .yellow
+        }
+        
+        
+    }
+    
+    private func executeCommand(from: String) {
         
     }
     
@@ -30,10 +35,9 @@ public class LiveViewController_1_2: LiveViewController {
         guard case .data(let messageData) = message else { return }
         
         do {
-            if let incomingObject = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(messageData) as? String {
+            if let command = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(messageData) as? String {
 
-                //do something with the incoming object from the playground page here
-                print(incomingObject)
+                executeCommand(from: command)
 
             }
         } catch let error { fatalError("\(error) Unable to receive the message from the Playground page") }
