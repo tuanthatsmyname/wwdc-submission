@@ -12,13 +12,10 @@ import PlaygroundSupport
 public class LiveViewController_1_1: LiveViewController {
     
     @IBOutlet weak var terminalTextView: UITextView!
+    
     var terminalSettings = TerminalSettings()
-    var boldAttributes: [NSAttributedString.Key : Any]!
-    var normalAttributes: [NSAttributedString.Key : Any]!
-    var prompt: NSMutableAttributedString!
-    var result: NSMutableAttributedString!
     var timer: Timer!
-    let lineSpacing = NSMutableParagraphStyle()
+    // TODO: check the text with someone
     var resultString = "Hi there, welcome to my Playground! Let's choose your own terminal settings and we can start!"
     
     public override func viewDidLoad() {
@@ -32,23 +29,17 @@ public class LiveViewController_1_1: LiveViewController {
         terminalTextView.backgroundColor = .clear
         terminalTextView.isEditable = false
         terminalTextView.isUserInteractionEnabled = false
-        lineSpacing.lineSpacing = 5
-        boldAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)-Bold", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
-        normalAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
-        prompt = NSMutableAttributedString(string: "\(terminalSettings.username)-mac: \(terminalSettings.currentPath) $ ", attributes: boldAttributes)
-        // TODO: check the text with someone
-        result = NSMutableAttributedString(string: resultString, attributes: normalAttributes)
     }
     
     private func runCommand() {
         var index = 0
         var counter = 0
         let command = "cat ./welcome.txt"
-        terminalTextView.attributedText = prompt
+        terminalTextView.attributedText = terminalSettings.prompt
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             if index < command.characters.count {
                 let attributedTextViewText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
-                attributedTextViewText.append(NSMutableAttributedString(string: String(command.characters[index]), attributes: self.normalAttributes))
+                attributedTextViewText.append(NSMutableAttributedString(string: String(command.characters[index]), attributes: self.terminalSettings.normalAttributes))
                 self.terminalTextView.attributedText = attributedTextViewText
             }
             
@@ -58,20 +49,33 @@ public class LiveViewController_1_1: LiveViewController {
                 index = 0
                 let attributedTextViewText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
                 attributedTextViewText.append(NSMutableAttributedString(string: "\n"))
-                attributedTextViewText.append(self.result)
+                attributedTextViewText.append(NSMutableAttributedString(string: self.resultString, attributes: self.terminalSettings.normalAttributes))
                 attributedTextViewText.append(NSMutableAttributedString(string: "\n"))
-                attributedTextViewText.append(self.prompt)
+                attributedTextViewText.append(self.terminalSettings.prompt)
                 self.terminalTextView.attributedText = attributedTextViewText
                 counter += 1
-//                if self.terminalTextView.contentSize.height > self.terminalTextView.frame.height {
-//                    let range = NSMakeRange(self.terminalTextView.attributedText.length - 1, 1)
-//                    self.terminalTextView.scrollRangeToVisible(range)
-//                }
             }
-            // show just 5 times
+            
             if counter == 5 {
                 timer.invalidate()
+                self.animateCursor()
             }
+        }
+    }
+    
+    private func animateCursor() {
+        var counter = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+            if counter % 2 == 0 {
+                let attributedText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
+                attributedText.append(NSMutableAttributedString(string: "│", attributes: self.terminalSettings.normalAttributes))
+                self.terminalTextView.attributedText = attributedText
+            } else {
+                let attributedText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
+                attributedText.deleteCharacters(in: NSRange(location: attributedText.length - 1, length: 1))
+                self.terminalTextView.attributedText = attributedText
+            }
+            counter += 1
         }
     }
 
@@ -79,14 +83,12 @@ public class LiveViewController_1_1: LiveViewController {
         guard case .data(let messageData) = message else { return }
         let decoder = JSONDecoder()
         if let terminalSettings = try? decoder.decode(TerminalSettings.self, from: messageData) {
-            boldAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)-Bold", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
-            normalAttributes = [.font : UIFont(name: "\(terminalSettings.textFont)", size: terminalSettings.textSize)!, .foregroundColor : terminalSettings.textColor, .paragraphStyle : lineSpacing]
-            prompt = NSMutableAttributedString(string: "\(terminalSettings.username)-mac: \(terminalSettings.currentPath) $ ", attributes: boldAttributes)
-            // TODO: check the text with someone
-            result = NSMutableAttributedString(string: "Well done!", attributes: normalAttributes)
-            view.backgroundColor = terminalSettings.backgroundColor
+            self.terminalSettings = terminalSettings
             DataManager.saveTerminalSettings(of: terminalSettings)
+            // TODO: check the text with someone
+            resultString = "Well done, you just set up your terminal! Let's start!"
             timer.invalidate()
+            setupTerminalTextView()
             runCommand()
         }
     }

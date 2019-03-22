@@ -883,7 +883,7 @@ public class Terminal {
             path = currentPath
         }
         
-        if path == "/Users/Tuan", fileName == "helloWorld.swift" {
+        if path == "/Users/\(username)", fileName == "helloWorld.swift" {
             return "Hello, world!"
         } else {
             return "swift: \(argument): could not build"

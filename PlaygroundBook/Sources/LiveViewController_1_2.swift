@@ -51,7 +51,7 @@ public class LiveViewController_1_2: LiveViewController {
                 self.terminalTextView.attributedText = self.terminalSettings.prompt
             } else {
                 let attributedString = NSMutableAttributedString(attributedString: self.terminalSettings.prompt)
-                attributedString.append(NSMutableAttributedString(string: "|", attributes: self.terminalSettings.boldAttributes))
+                attributedString.append(NSMutableAttributedString(string: "│", attributes: self.terminalSettings.boldAttributes))
                 self.terminalTextView.attributedText = attributedString
             }
             self.counter += 1
@@ -79,9 +79,9 @@ public class LiveViewController_1_2: LiveViewController {
                 attributedText.append(NSMutableAttributedString(string: "\n"))
                 if let result = self.terminal.execute(command: command) {
                     attributedText.append(NSMutableAttributedString(string: result, attributes: self.terminalSettings.normalAttributes))
+                    attributedText.append(NSMutableAttributedString(string: "\n"))
                     self.terminalSettings.currentPath = self.terminal.currentPath
                 }
-                attributedText.append(NSMutableAttributedString(string: "\n"))
                 attributedText.append(self.terminalSettings.prompt)
                 self.terminalTextView.attributedText = attributedText
             }
@@ -101,3 +101,8 @@ public class LiveViewController_1_2: LiveViewController {
         
     }
 }
+
+//                if self.terminalTextView.contentSize.height > self.terminalTextView.frame.height {
+//                    let range = NSMakeRange(self.terminalTextView.attributedText.length - 1, 1)
+//                    self.terminalTextView.scrollRangeToVisible(range)
+//                }

@@ -74,7 +74,7 @@ public class DataManager {
         let surpriseFile = File(permissions: "f", numberOfLinks: 1, ownerName: "root", ownerGroup: "root", size: 1024, timeOfLastModification: Date(), name: "messageWithLove.txt", content: "Dear person, who is reading this file right now. I would like to wish you a very nice day. Don't worry about things that much. The most important thing is that you are still alive and breathing air given by the best planet in the Galaxy. Be nice to people and be happy.\n With love,\n\n\nTuan")
         let workFolder = Folder(permissions: "d", numberOfLinks: 1, ownerName: username, ownerGroup: "staff", size: 128, timeOfLastModification: Date(), name: "Work")
         let schoolFolder = Folder(permissions: "d", numberOfLinks: 1, ownerName: username, ownerGroup: "staff", size: 128, timeOfLastModification: Date(), name: "School")
-        let swiftFile = File(permissions: "f", numberOfLinks: 1, ownerName: username, ownerGroup: "staff", size: 16, timeOfLastModification: Date(), name: "awesomeApp.swift", content: "import Foundation\nfunc greet() {\n\tprint(\"Hello, world!\"\n}\ngreet())")
+        let swiftFile = File(permissions: "f", numberOfLinks: 1, ownerName: username, ownerGroup: "staff", size: 16, timeOfLastModification: Date(), name: "awesomeApp.swift", content: "import Foundation\n\nfunc greet() {\n\tprint(\"Hello, world!\")\n}\n\ngreet()")
         
         var paths = [String : [TerminalElement]]()
         paths["/"] = [systemFolder, usersFolder, volumesFolder]
