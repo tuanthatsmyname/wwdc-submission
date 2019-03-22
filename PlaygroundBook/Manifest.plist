@@ -15,7 +15,7 @@
 	<key>SwiftVersion</key>
 	<string>$(SWIFT_VERSION)</string>
 	<key>Name</key>
-	<string>Playground Book Name</string>
+	<string>Everyone can Terminal</string>
 	<key>ImageReference</key>
 	<string>yourCoverImage.png</string>
 	<key>Chapters</key>
