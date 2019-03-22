@@ -28,7 +28,11 @@ public class TerminalElement {
     }
     
     public func print() -> String {
-        return "\(permissions) \(numberOfLinks) \(ownerName) \(ownerGroup) \(size) \(timeOfLastModification) \(name)"
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yy HH:mm"
+
+        return "\(permissions) \(numberOfLinks) \(ownerName) \(ownerGroup) \(size) \(dateFormatter.string(from: timeOfLastModification)) \(name)"
     }
     
 }

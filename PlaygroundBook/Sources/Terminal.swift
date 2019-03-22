@@ -82,10 +82,7 @@ public class Terminal {
     }
     
     private func listAllTerminalElements(from path: String) -> String {
-        // TODO: delete comments if the method works
-//        for terminalElement in paths[path]! {
-//            print(terminalElement.name)
-//        }
+        
         var directory = paths[path]!
         var output = ""
         for index in 0..<directory.count {
@@ -100,11 +97,6 @@ public class Terminal {
     }
     
     private func listAllTerminalElements(from directory: [TerminalElement]) -> String {
-        // TODO: delete comments if the method works
-//        for terminalElement in directory {
-//            // TODO: print in the terminal
-//            print(terminalElement.name)
-//        }
         
         var output = ""
         for index in 0..<directory.count {
@@ -119,11 +111,7 @@ public class Terminal {
     }
     
     private func listAllTerminalElementsWithDetails(from path: String) -> String {
-        // TODO: delete comments if the method works
-        //        for terminalElement in paths[path]! {
-        //            print(terminalElement.print())
-        //        }
-        
+    
         var directory = paths[path]!
         var output = ""
         for index in 0..<directory.count {
