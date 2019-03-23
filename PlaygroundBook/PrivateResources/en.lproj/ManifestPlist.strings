@@ -9,13 +9,34 @@ Contains English localizations of values in Manifest.plist files in the playgrou
 "PlaygroundBookName" = "Everyone can Terminal";
 
 /* The localized name of the first chapter in the playground book. */
-"ChapterOneName" = "Chapter One";
+"ChapterOneName" = "Everyone can Terminal";
 
 /* The localized name of the first page in the first chapter in the playground book. */
-"ChapterOnePageOneName" = "Introduction";
+"ChapterOnePageOneName" = "Everyone can Terminal";
 
-/* The localized name of the first page in the first chapter in the playground book. */
-"ChapterOnePageTwoName" = "ls";
+/* The localized name of the second page in the first chapter in the playground book. */
+"ChapterOnePageTwoName" = "Command: man";
 
-/* The localized name of the first page in the first chapter in the playground book. */
-"ChapterOnePageThreeName" = "cd";
+/* The localized name of the third page in the first chapter in the playground book. */
+"ChapterOnePageThreeName" = "Command: ls";
+
+/* The localized name of the fourth page in the first chapter in the playground book. */
+"ChapterOnePageFourName" = "Command: cd";
+
+/* The localized name of the fifth page in the first chapter in the playground book. */
+"ChapterOnePageFiveName" = "Command: touch";
+
+/* The localized name of the sixth page in the first chapter in the playground book. */
+"ChapterOnePageSixName" = "Command: mkdir";
+
+/* The localized name of the seventh page in the first chapter in the playground book. */
+"ChapterOnePageSevenName" = "Command: rm";
+
+/* The localized name of the eighth page in the first chapter in the playground book. */
+"ChapterOnePageEightName" = "Command: cat";
+
+/* The localized name of the nineth page in the first chapter in the playground book. */
+"ChapterOnePageNineName" = "Command: swift";
+
+/* The localized name of the tenth page in the first chapter in the playground book. */
+"ChapterOnePageTenName" = "Conclusion";
