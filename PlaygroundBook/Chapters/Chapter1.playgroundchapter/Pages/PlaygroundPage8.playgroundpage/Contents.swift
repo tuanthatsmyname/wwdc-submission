@@ -4,6 +4,12 @@ import Foundation
 
 //#-end-hidden-code
 
+/*:
+ 
+ **Let's try the new command that you have just learn!**
+ 
+ */
+
 let command: String = /*#-editable-code*//*#-end-editable-code*/
     
     //#-hidden-code

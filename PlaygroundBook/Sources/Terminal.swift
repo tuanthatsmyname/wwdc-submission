@@ -893,7 +893,33 @@ public class Terminal {
     
     // TODO
     private func man(with arguments: [String]) -> String {
-        return ""
+        if arguments.count != 1 {
+            return "man: too many arguments\nusage: man [command]"
+        }
+        
+        let command = arguments[0]
+        
+        switch command {
+        case "man":
+            return ""
+        case "ls":
+            return ""
+        case "cd":
+            return ""
+        case "touch":
+            return ""
+        case "mkdir":
+            return ""
+        case "rm":
+            return ""
+        case "cat":
+            return ""
+        case "swift":
+            return ""
+        default:
+            return "man: \(command): no such command"
+        }
+        
     }
     
 }

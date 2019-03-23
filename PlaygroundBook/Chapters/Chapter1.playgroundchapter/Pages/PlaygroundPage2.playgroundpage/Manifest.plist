@@ -8,5 +8,16 @@
 	<true/>
 	<key>LiveViewMode</key>
 	<string>VisibleByDefault</string>
+	<key>Hints</key>
+	<array>
+		<dict>
+			<key>Content</key>
+			<string>OMG</string>
+		</dict>
+		<dict>
+			<key>Content</key>
+			<string>WTF</string>
+		</dict>
+	</array>
 </dict>
 </plist>
