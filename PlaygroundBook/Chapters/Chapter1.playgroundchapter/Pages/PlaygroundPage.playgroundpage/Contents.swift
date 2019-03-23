@@ -5,7 +5,7 @@ import UIKit
 
 //#-end-hidden-code
 
-//: # Every one can Terminal
+//: # Everyone can Terminal
 
 let name: String = /*#-editable-code*//*#-end-editable-code*/
 let textSize: CGFloat = /*#-editable-code*//*#-end-editable-code*/

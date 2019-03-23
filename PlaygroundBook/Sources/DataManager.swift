@@ -64,7 +64,7 @@ public class DataManager {
         let wwdcFolder = Folder(permissions: "d", numberOfLinks: 1, ownerName: username, ownerGroup: "staff", size: 256, timeOfLastModification: Date(), name: "wwdc")
         let sharedFolder = Folder(permissions: "d", numberOfLinks: 1, ownerName: "root", ownerGroup: "root", size: 256, timeOfLastModification: Date(), name: "shared")
         let motivatingFile = File(permissions: "f", numberOfLinks: 1, ownerName: "guest", ownerGroup: "staff", size: 8, timeOfLastModification: Date(), name: "wwdc.txt", content: "I REALLY WANT TO GO TO WWDC 2019!!!")
-        let helloWorldSwiftFile = File(permissions: "f", numberOfLinks: 1, ownerName: username, ownerGroup: "staff", size: 16, timeOfLastModification: Date(), name: "helloWorld.swift", content: "import Foundation\nfunc greet() {\n\tprint(\"Hello, world!\"\n}\ngreet())")
+        let helloWorldSwiftFile = File(permissions: "f", numberOfLinks: 1, ownerName: username, ownerGroup: "staff", size: 16, timeOfLastModification: Date(), name: "helloWorld.swift", content: "import Foundation\n\nfunc greet() {\n\tprint(\"Hello, world!\")\n}\n\ngreet()")
         let screenSaver1 = File(permissions: "f", numberOfLinks: 1, ownerName: "root", ownerGroup: "root", size: 32, timeOfLastModification: Date(), name: "screenSaver1.jpg", content: "")
         let screenSaver2 = File(permissions: "f", numberOfLinks: 1, ownerName: "root", ownerGroup: "root", size: 32, timeOfLastModification: Date(), name: "screenSaver2.jpg", content: "")
         let screenSaver3 = File(permissions: "f", numberOfLinks: 1, ownerName: "root", ownerGroup: "root", size: 32, timeOfLastModification: Date(), name: "screenSaver3.jpg", content: "")

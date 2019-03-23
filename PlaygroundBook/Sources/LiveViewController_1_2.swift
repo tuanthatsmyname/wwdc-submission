@@ -99,8 +99,8 @@ public class LiveViewController_1_2: LiveViewController {
                 if let result = self.terminal.execute(command: command) {
                     attributedText.append(NSMutableAttributedString(string: result, attributes: self.terminalSettings.normalAttributes))
                     attributedText.append(NSMutableAttributedString(string: "\n"))
-                    self.terminalSettings.currentPath = self.terminal.currentPath
                 }
+                self.terminalSettings.currentPath = self.terminal.currentPath
                 attributedText.append(self.terminalSettings.prompt)
                 self.terminalTextView.attributedText = attributedText
                 

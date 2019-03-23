@@ -13,15 +13,24 @@ public class LiveViewController_1_1: LiveViewController {
     
     @IBOutlet weak var terminalTextView: UITextView!
     
-    var terminalSettings = TerminalSettings()
+    var terminalSettings: TerminalSettings!
     var timer: Timer!
     // TODO: check the text with someone
     var resultString = "Hi there, welcome to my Playground! Let's choose your own terminal settings and we can start!"
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        setupTerminal()
         setupTerminalTextView()
         runCommand()
+    }
+    
+    private func setupTerminal() {
+        if let settings = DataManager.loadTerminalSettings() {
+            terminalSettings = settings
+        } else {
+            terminalSettings = TerminalSettings()
+        }
     }
     
     private func setupTerminalTextView() {
@@ -39,7 +48,12 @@ public class LiveViewController_1_1: LiveViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             if index < command.characters.count {
                 let attributedTextViewText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
-                attributedTextViewText.append(NSMutableAttributedString(string: String(command.characters[index]), attributes: self.terminalSettings.normalAttributes))
+                
+                // deleting "|" from the type animation
+                if index != 0 {
+                    attributedTextViewText.deleteCharacters(in: NSRange(location: attributedTextViewText.length - 1, length: 1))
+                }
+                attributedTextViewText.append(NSMutableAttributedString(string: String(command.characters[index]) + "│", attributes: self.terminalSettings.normalAttributes))
                 self.terminalTextView.attributedText = attributedTextViewText
             }
             
@@ -48,6 +62,7 @@ public class LiveViewController_1_1: LiveViewController {
             if index == command.characters.count + 3 {
                 index = 0
                 let attributedTextViewText = NSMutableAttributedString(attributedString: self.terminalTextView.attributedText)
+                attributedTextViewText.deleteCharacters(in: NSRange(location: attributedTextViewText.length - 1, length: 1))
                 attributedTextViewText.append(NSMutableAttributedString(string: "\n"))
                 attributedTextViewText.append(NSMutableAttributedString(string: self.resultString, attributes: self.terminalSettings.normalAttributes))
                 attributedTextViewText.append(NSMutableAttributedString(string: "\n"))
