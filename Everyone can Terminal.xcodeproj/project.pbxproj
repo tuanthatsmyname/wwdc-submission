@@ -114,7 +114,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E086DC02051C5A7004D8D25 /* Terminal.playgroundbook */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Terminal.playgroundbook; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E086DC02051C5A7004D8D25 /* Everyone can Terminal.playgroundbook */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Everyone can Terminal.playgroundbook"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E086DC72051DD03004D8D25 /* BookOverridingBuildSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BookOverridingBuildSettings.xcconfig; sourceTree = "<group>"; };
 		5E086DCD2051DDB8004D8D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LiveView.storyboard; sourceTree = "<group>"; };
 		5E086DCF2051DF0F004D8D25 /* Manifest.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Manifest.plist; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 		5E086DA4204F706E004D8D25 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E086DC02051C5A7004D8D25 /* Terminal.playgroundbook */,
+				5E086DC02051C5A7004D8D25 /* Everyone can Terminal.playgroundbook */,
 				5EF2F9AB2054BBF300191409 /* libBook_Sources.a */,
 				5EA2E3BD2056F35A00416A35 /* LiveViewTestApp.app */,
 			);
@@ -323,9 +323,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5E086DBF2051C5A7004D8D25 /* Terminal */ = {
+		5E086DBF2051C5A7004D8D25 /* Everyone can Terminal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E086DC52051C5A7004D8D25 /* Build configuration list for PBXNativeTarget "Terminal" */;
+			buildConfigurationList = 5E086DC52051C5A7004D8D25 /* Build configuration list for PBXNativeTarget "Everyone can Terminal" */;
 			buildPhases = (
 				5E086DD22051E35D004D8D25 /* Copy Book Contents */,
 				5E086DC62051DB17004D8D25 /* Resources */,
@@ -336,9 +336,9 @@
 			dependencies = (
 				5EF2F9B52054BDD100191409 /* PBXTargetDependency */,
 			);
-			name = Terminal;
+			name = "Everyone can Terminal";
 			productName = PlaygroundBook;
-			productReference = 5E086DC02051C5A7004D8D25 /* Terminal.playgroundbook */;
+			productReference = 5E086DC02051C5A7004D8D25 /* Everyone can Terminal.playgroundbook */;
 			productType = "com.apple.product-type.bundle";
 		};
 		5EA2E3BC2056F35A00416A35 /* LiveViewTestApp */ = {
@@ -400,7 +400,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5E2A7AE0204F611300F4E17A /* Build configuration list for PBXProject "Terminal" */;
+			buildConfigurationList = 5E2A7AE0204F611300F4E17A /* Build configuration list for PBXProject "Everyone can Terminal" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -413,7 +413,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E086DBF2051C5A7004D8D25 /* Terminal */,
+				5E086DBF2051C5A7004D8D25 /* Everyone can Terminal */,
 				5EF2F9AA2054BBF300191409 /* Book_Sources */,
 				5EA2E3BC2056F35A00416A35 /* LiveViewTestApp */,
 			);
@@ -504,7 +504,7 @@
 /* Begin PBXTargetDependency section */
 		5EA2E3D02056F36100416A35 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5E086DBF2051C5A7004D8D25 /* Terminal */;
+			target = 5E086DBF2051C5A7004D8D25 /* Everyone can Terminal */;
 			targetProxy = 5EA2E3CF2056F36100416A35 /* PBXContainerItemProxy */;
 		};
 		5EA2E3D22056F36300416A35 /* PBXTargetDependency */ = {
@@ -581,7 +581,7 @@
 				INSTALL_PATH = /;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PLAYGROUND_BOOK_CONTENT_IDENTIFIER)";
-				PRODUCT_NAME = Terminal;
+				PRODUCT_NAME = "Everyone can Terminal";
 				SKIP_INSTALL = NO;
 			};
 			name = Debug;
@@ -595,7 +595,7 @@
 				INSTALL_PATH = /;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PLAYGROUND_BOOK_CONTENT_IDENTIFIER)";
-				PRODUCT_NAME = Terminal;
+				PRODUCT_NAME = "Everyone can Terminal";
 				SKIP_INSTALL = NO;
 			};
 			name = Release;
@@ -794,7 +794,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5E086DC52051C5A7004D8D25 /* Build configuration list for PBXNativeTarget "Terminal" */ = {
+		5E086DC52051C5A7004D8D25 /* Build configuration list for PBXNativeTarget "Everyone can Terminal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E086DC32051C5A7004D8D25 /* Debug */,
@@ -803,7 +803,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E2A7AE0204F611300F4E17A /* Build configuration list for PBXProject "Terminal" */ = {
+		5E2A7AE0204F611300F4E17A /* Build configuration list for PBXProject "Everyone can Terminal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E2A7AE1204F611300F4E17A /* Debug */,

@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5E086DBF2051C5A7004D8D25"
                BuildableName = "Terminal.playgroundbook"
-               BlueprintName = "Terminal"
-               ReferencedContainer = "container:Terminal.xcodeproj">
+               BlueprintName = "Everyone can Terminal"
+               ReferencedContainer = "container:Everyone can Terminal.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,8 +47,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5E086DBF2051C5A7004D8D25"
             BuildableName = "Terminal.playgroundbook"
-            BlueprintName = "Terminal"
-            ReferencedContainer = "container:Terminal.xcodeproj">
+            BlueprintName = "Everyone can Terminal"
+            ReferencedContainer = "container:Everyone can Terminal.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,8 +65,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5E086DBF2051C5A7004D8D25"
             BuildableName = "Terminal.playgroundbook"
-            BlueprintName = "Terminal"
-            ReferencedContainer = "container:Terminal.xcodeproj">
+            BlueprintName = "Everyone can Terminal"
+            ReferencedContainer = "container:Everyone can Terminal.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
