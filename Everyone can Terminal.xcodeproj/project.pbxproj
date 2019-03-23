@@ -22,12 +22,9 @@
 		5EF2F9B82054E6FE00191409 /* Sources in Copy Book Contents */ = {isa = PBXBuildFile; fileRef = 5EF2F9A52054BBB200191409 /* Sources */; };
 		960FFD6A22394F56001750E8 /* LiveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */; };
 		960FFD7A223A67E8001750E8 /* LiveView_1_2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960FFD75223A67E8001750E8 /* LiveView_1_2.storyboard */; };
-		960FFD7B223A67E8001750E8 /* LiveView_1_3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960FFD77223A67E8001750E8 /* LiveView_1_3.storyboard */; };
 		960FFD7D223A6BFD001750E8 /* LiveView_1_2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960FFD75223A67E8001750E8 /* LiveView_1_2.storyboard */; };
-		960FFD7E223A6C00001750E8 /* LiveView_1_3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960FFD77223A67E8001750E8 /* LiveView_1_3.storyboard */; };
 		960FFD84223A77DD001750E8 /* LiveViewController_1_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FFD83223A77DD001750E8 /* LiveViewController_1_1.swift */; };
 		960FFD86223A7898001750E8 /* LiveViewController_1_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FFD85223A7898001750E8 /* LiveViewController_1_2.swift */; };
-		960FFD88223A789F001750E8 /* LiveViewController_1_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960FFD87223A789F001750E8 /* LiveViewController_1_3.swift */; };
 		960FFD89223A7A1B001750E8 /* LiveView_1_1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960FFD73223A67E8001750E8 /* LiveView_1_1.storyboard */; };
 		960FFD8A223A7A1B001750E8 /* LiveView_1_1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960FFD73223A67E8001750E8 /* LiveView_1_1.storyboard */; };
 		960FFDB3223D8986001750E8 /* PublicResources in Resources */ = {isa = PBXBuildFile; fileRef = 9686CA0122391AE600E56BAB /* PublicResources */; };
@@ -137,10 +134,8 @@
 		5EF2F9B62054E6F900191409 /* Chapters */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Chapters; sourceTree = "<group>"; };
 		960FFD74223A67E8001750E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LiveView_1_1.storyboard; sourceTree = "<group>"; };
 		960FFD76223A67E8001750E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LiveView_1_2.storyboard; sourceTree = "<group>"; };
-		960FFD78223A67E8001750E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LiveView_1_3.storyboard; sourceTree = "<group>"; };
 		960FFD83223A77DD001750E8 /* LiveViewController_1_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController_1_1.swift; sourceTree = "<group>"; };
 		960FFD85223A7898001750E8 /* LiveViewController_1_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController_1_2.swift; sourceTree = "<group>"; };
-		960FFD87223A789F001750E8 /* LiveViewController_1_3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController_1_3.swift; sourceTree = "<group>"; };
 		960FFDB4223D8A40001750E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9686CA0122391AE600E56BAB /* PublicResources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PublicResources; sourceTree = "<group>"; };
 		96EB86AD22393C0D0000332C /* USAGE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = USAGE.md; sourceTree = "<group>"; };
@@ -288,7 +283,6 @@
 				5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */,
 				960FFD73223A67E8001750E8 /* LiveView_1_1.storyboard */,
 				960FFD75223A67E8001750E8 /* LiveView_1_2.storyboard */,
-				960FFD77223A67E8001750E8 /* LiveView_1_3.storyboard */,
 			);
 			path = PrivateResources;
 			sourceTree = "<group>";
@@ -300,7 +294,6 @@
 				5EF2F9AD2054BBF300191409 /* LiveViewController.swift */,
 				960FFD83223A77DD001750E8 /* LiveViewController_1_1.swift */,
 				960FFD85223A7898001750E8 /* LiveViewController_1_2.swift */,
-				960FFD87223A789F001750E8 /* LiveViewController_1_3.swift */,
 				BED965AB223DBDA8003451E6 /* TerminalSettings.swift */,
 				BED965A3223DA5C9003451E6 /* Terminal.swift */,
 				BED965A9223DA6CA003451E6 /* TerminalElement.swift */,
@@ -430,7 +423,6 @@
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,
 				960FFD7A223A67E8001750E8 /* LiveView_1_2.storyboard in Resources */,
 				9686CA0222391AE600E56BAB /* PublicResources in Resources */,
-				960FFD7B223A67E8001750E8 /* LiveView_1_3.storyboard in Resources */,
 				960FFDB5223D8A40001750E8 /* Assets.xcassets in Resources */,
 				96EB86AE22393C0D0000332C /* USAGE.md in Resources */,
 			);
@@ -440,7 +432,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				960FFD7E223A6C00001750E8 /* LiveView_1_3.storyboard in Resources */,
 				5EA2E3CA2056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard in Resources */,
 				960FFD89223A7A1B001750E8 /* LiveView_1_1.storyboard in Resources */,
 				960FFD7D223A6BFD001750E8 /* LiveView_1_2.storyboard in Resources */,
@@ -492,7 +483,6 @@
 				BED965A4223DA5C9003451E6 /* Terminal.swift in Sources */,
 				960FFD86223A7898001750E8 /* LiveViewController_1_2.swift in Sources */,
 				BED965A8223DA609003451E6 /* File.swift in Sources */,
-				960FFD88223A789F001750E8 /* LiveViewController_1_3.swift in Sources */,
 				BED965AC223DBDA8003451E6 /* TerminalSettings.swift in Sources */,
 				BEE3D6B02243FD240048E465 /* Extensions.swift in Sources */,
 				BED965A6223DA5F4003451E6 /* Folder.swift in Sources */,
@@ -558,14 +548,6 @@
 				960FFD76223A67E8001750E8 /* Base */,
 			);
 			name = LiveView_1_2.storyboard;
-			sourceTree = "<group>";
-		};
-		960FFD77223A67E8001750E8 /* LiveView_1_3.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				960FFD78223A67E8001750E8 /* Base */,
-			);
-			name = LiveView_1_3.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

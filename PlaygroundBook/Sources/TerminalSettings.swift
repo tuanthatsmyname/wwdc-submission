@@ -61,12 +61,12 @@ public struct TerminalSettings {
     }
     
     public init() {
-        self.textColor = .white
+        self.textColor = UIColor(displayP3Red: 40/255, green: 254/255, blue: 20/255, alpha: 1.0)
         self.textSize = 16.0
         self.backgroundColor = .black
-        self.username = "TuanTuDo"
+        self.username = "tuan"
         self.textFont = Fonts.menlo.rawValue
-        self.currentPath = "/Users/TuanTuDo"
+        self.currentPath = "/Users/tuan"
     }
     
 }
