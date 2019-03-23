@@ -110,6 +110,7 @@ public class LiveViewController_1_2: LiveViewController {
                 }
                 
                 DataManager.saveTerminalHistory(from: attributedText)
+                DataManager.saveTerminalSettings(of: self.terminalSettings)
                 
                 self.animateCursor()
                 
