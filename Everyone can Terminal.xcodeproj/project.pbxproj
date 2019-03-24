@@ -40,6 +40,8 @@
 		BED965AC223DBDA8003451E6 /* TerminalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED965AB223DBDA8003451E6 /* TerminalSettings.swift */; };
 		BEE3D6B02243FD240048E465 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3D6AF2243FD240048E465 /* Extensions.swift */; };
 		BEE3D6B2224441B60048E465 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3D6B1224441B60048E465 /* DataManager.swift */; };
+		BEE3D6B92247F1180048E465 /* clickSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BEE3D6B82247F1170048E465 /* clickSound.m4a */; };
+		BEE3D6BA2247F1180048E465 /* clickSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BEE3D6B82247F1170048E465 /* clickSound.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -146,6 +148,7 @@
 		BED965AB223DBDA8003451E6 /* TerminalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalSettings.swift; sourceTree = "<group>"; };
 		BEE3D6AF2243FD240048E465 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BEE3D6B1224441B60048E465 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BEE3D6B82247F1170048E465 /* clickSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = clickSound.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +282,7 @@
 		5EF2F9792054B64800191409 /* PrivateResources */ = {
 			isa = PBXGroup;
 			children = (
+				BEE3D6B82247F1170048E465 /* clickSound.m4a */,
 				5EF2F97E2054B6E400191409 /* ManifestPlist.strings */,
 				5E086DCC2051DDAE004D8D25 /* LiveView.storyboard */,
 				960FFD73223A67E8001750E8 /* LiveView_1_1.storyboard */,
@@ -423,6 +427,7 @@
 				5E086DCA2051DDAE004D8D25 /* LiveView.storyboard in Resources */,
 				960FFD7A223A67E8001750E8 /* LiveView_1_2.storyboard in Resources */,
 				9686CA0222391AE600E56BAB /* PublicResources in Resources */,
+				BEE3D6B92247F1180048E465 /* clickSound.m4a in Resources */,
 				960FFDB5223D8A40001750E8 /* Assets.xcassets in Resources */,
 				96EB86AE22393C0D0000332C /* USAGE.md in Resources */,
 			);
@@ -432,6 +437,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEE3D6BA2247F1180048E465 /* clickSound.m4a in Resources */,
 				5EA2E3CA2056F35B00416A35 /* LiveViewTestAppLaunchScreen.storyboard in Resources */,
 				960FFD89223A7A1B001750E8 /* LiveView_1_1.storyboard in Resources */,
 				960FFD7D223A6BFD001750E8 /* LiveView_1_2.storyboard in Resources */,

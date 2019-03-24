@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import PlaygroundSupport
+import AVFoundation
 
 public class LiveViewController_1_1: LiveViewController {
     
@@ -15,7 +16,6 @@ public class LiveViewController_1_1: LiveViewController {
     
     var terminalSettings: TerminalSettings!
     var timer: Timer!
-    // TODO: check the text with someone
     var resultString = "Hi there, let's choose your own terminal settings and start!"
     
     public override func viewDidLoad() {
@@ -55,6 +55,7 @@ public class LiveViewController_1_1: LiveViewController {
                 }
                 attributedTextViewText.append(NSMutableAttributedString(string: String(command.characters[index]) + "│", attributes: self.terminalSettings.normalAttributes))
                 self.terminalTextView.attributedText = attributedTextViewText
+
             }
             
             index += 1
@@ -100,7 +101,6 @@ public class LiveViewController_1_1: LiveViewController {
         if let terminalSettings = try? decoder.decode(TerminalSettings.self, from: messageData) {
             self.terminalSettings = terminalSettings
             DataManager.saveTerminalSettings(of: terminalSettings)
-            // TODO: check the text with someone
             resultString = "Well done, you just set up your terminal! Let's start!"
             timer.invalidate()
             setupTerminalTextView()

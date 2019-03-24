@@ -19,7 +19,7 @@ import PlaygroundSupport
  
  Executing terminal commands in this Playground is very simple. Just set the variable `command` with your terminal command as a `String` and run the code.
  
- For example: `let command: String = "man man"`, if you want to execute `man man` in the Terminal.
+ For example: `let command = "man man"`, if you want to execute `man man` in the terminal.
  
  ## Practice Time
  
@@ -38,8 +38,8 @@ let command = /*#-editable-code*/""/*#-end-editable-code*/
 
 sendValue(.data(try NSKeyedArchiver.archivedData(withRootObject: command, requiringSecureCoding: true)))
 
-if command == "man man" {
-    PlaygroundPage.current.assessmentStatus = .pass(message: "Well done! You just executed your first terminal command. You can move on to the [**next page**](@next) and learn something new!")
+if command == "man man" || command == "man" {
+    PlaygroundPage.current.assessmentStatus = .pass(message: "Well done! You just executed your first terminal command. You can move on to the [**next page**](@next) or read manuals of all commands!")
 
 }
 

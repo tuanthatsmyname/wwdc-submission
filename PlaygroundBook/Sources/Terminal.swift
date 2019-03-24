@@ -142,7 +142,7 @@ public class Terminal {
         let directories = path.split(separator: "/")
         var parentFolderPath = ""
         if directories.count < 2 {
-            parentFolderPath += "/"
+            parentFolderPath = "/"
         } else {
             for index in 0..<directories.count-1 {
                 parentFolderPath += "/\(directories[index])"
@@ -202,13 +202,14 @@ public class Terminal {
                         
                         switch String(splittedArgument[0]) {
                         case ".":
-                            path = currentPath
-                        case "..":
-                            if currentPath == "/" {
+                            if currentPath != "/" {
                                 path = currentPath
-                            } else {
+                            }
+                        case "..":
+                            if currentPath != "/" {
                                 path = getParentFolderPath(from: currentPath)
                             }
+                            
                         default:
                             return "ls: \(argument): no such file or directory"
                         }
@@ -230,7 +231,13 @@ public class Terminal {
                             return "ls: \(argument): no such file or directory"
                         }
                     default:
-                        let path = currentPath + "/" + argument
+                        var path = ""
+                        if currentPath == "/" {
+                            path = currentPath + argument
+                        } else {
+                            path = currentPath + "/" + argument
+                        }
+
                         if let directory = paths[path] {
                             return listAllTerminalElements(from: directory)
                         } else {
@@ -274,11 +281,11 @@ public class Terminal {
                     
                     switch String(splittedArgument[0]) {
                     case ".":
-                        path = currentPath
-                    case "..":
-                        if currentPath == "/" {
+                        if currentPath != "/" {
                             path = currentPath
-                        } else {
+                        }
+                    case "..":
+                        if currentPath != "/" {
                             path = getParentFolderPath(from: currentPath)
                         }
                     default:
@@ -302,7 +309,12 @@ public class Terminal {
                         return "ls: \(directory): No such file or directory"
                     }
                 default:
-                    let path = currentPath + "/" + directory
+                    var path = ""
+                    if currentPath == "/" {
+                        path = currentPath + directory
+                    } else {
+                        path = currentPath + "/" + directory
+                    }
                     if let directory = paths[path] {
                         return listAllTerminalElementsWithDetails(from: directory)
                     } else {
@@ -320,7 +332,7 @@ public class Terminal {
     private func cd(with arguments: [String]) -> String? {
         
         if arguments.count != 1 {
-            return "cd: too many arguments"
+            return "cd: invalid usage\nusage: cd [directory]"
         }
         
         let argument = String(arguments[0])
@@ -357,6 +369,11 @@ public class Terminal {
                     if currentPath != "/" {
                         path = getParentFolderPath(from: currentPath)
                     }
+                    
+                    if path == "/" {
+                        path = ""
+                    }
+                    
                 default:
                     return "cd: \(argument): No such file or directory2"
                 }
@@ -382,7 +399,7 @@ public class Terminal {
                 currentPath = path
                 return nil
             } else {
-                return "cd: \(path): No such file or directory3"
+                return "cd: \(argument): No such file or directory"
             }
             
         }
@@ -393,11 +410,10 @@ public class Terminal {
     private func touch(with arguments: [String]) -> String? {
         
         if arguments.count != 1 {
-            return "touch: too many arguments"
+            return "touch: invalid usage\nusage: touch [path/file]"
         }
         
         let argument = String(arguments[0])
-        
         var path = ""
         var newFileName = ""
         
@@ -414,11 +430,19 @@ public class Terminal {
                 if currentPath != "/" {
                     path = currentPath
                 }
+                
+                if currentPath == "/", splittedArgument.count < 3 {
+                    path = "/"
+                }
             case "..":
                 if currentPath == "/" {
                     path = currentPath
                 } else {
                     path = getParentFolderPath(from: currentPath)
+                    
+                    if path == "/", splittedArgument.count > 2 {
+                        path = ""
+                    }
                 }
             default:
                 return "touch: \(argument): no such file or directory"
@@ -438,8 +462,18 @@ public class Terminal {
             path = getParentFolderPath(from: argument)
             newFileName = String(splitted.last!)
         default:
+            let splitted = argument.split(separator: "/")
+            
+            if splitted.count < 1 {
+                return "cat: \(argument): invalid name of a file"
+            }
+            
             path = currentPath
-            newFileName = argument
+            
+            for index in 0..<splitted.count-1 {
+                path += "/\(splitted[index])"
+            }
+            newFileName = String(splitted.last!)
         }
         
         if paths[path] == nil {
@@ -470,7 +504,7 @@ public class Terminal {
     
     private func mkdir(with arguments: [String]) -> String? {
         if arguments.count != 1 {
-            return "mdkir: too many arguments"
+            return "mdkir: illegal usage\nusage: mkdir [path/directory]"
         }
         
         let argument = String(arguments[0])
@@ -489,11 +523,19 @@ public class Terminal {
                 if currentPath != "/" {
                     path = currentPath
                 }
+                
+                if currentPath == "/", splittedArgument.count < 3 {
+                    path = "/"
+                }
             case "..":
                 if currentPath == "/" {
                     path = currentPath
                 } else {
                     path = getParentFolderPath(from: currentPath)
+                    
+                    if path == "/", splittedArgument.count > 2 {
+                        path = ""
+                    }
                 }
             default:
                 return "mkdir: \(argument): no such file or directory"
@@ -516,8 +558,20 @@ public class Terminal {
             
         // command argument
         default:
+            let splitted = argument.split(separator: "/")
+            
+            if splitted.count < 1 {
+                return "mkdir: \(argument): invalid name of a directory"
+            }
+            
             path = currentPath
-            newFolderName = argument
+            
+            for index in 0..<splitted.count-1 {
+                path += "/\(splitted[index])"
+            }
+            
+            newFolderName = String(splitted.last!)
+
         }
         
         if paths[path] == nil {
@@ -571,6 +625,11 @@ public class Terminal {
                     if currentPath != "/" {
                         path = currentPath
                     }
+                    
+                    if currentPath == "/", splittedArgument.count < 3 {
+                        path = "/"
+                    }
+                    
                     for index in 1..<splittedArgument.count-1 {
                         path += "/\(splittedArgument[index])"
                     }
@@ -583,6 +642,11 @@ public class Terminal {
                         path = currentPath
                     } else {
                         path = getParentFolderPath(from: currentPath)
+                        
+                        if path == "/", splittedArgument.count > 2 {
+                            path = ""
+                        }
+                        
                     }
                     for index in 1..<splittedArgument.count-1 {
                         path += "/\(splittedArgument[index])"
@@ -604,8 +668,20 @@ public class Terminal {
                 fileName = String(splitted.last!)
                 
             default:
-                fileName = argument
+                
+                let splitted = argument.split(separator: "/")
+                
+                if splitted.count < 1 {
+                    return "rm: \(argument): no such file or directory"
+                }
+                
                 path = currentPath
+                
+                for index in 0..<splitted.count-1 {
+                    path += "/\(splitted[index])"
+                }
+                
+                fileName = String(splitted.last!)
             }
             
             if let directory = paths[path] {
@@ -665,6 +741,11 @@ public class Terminal {
                     if currentPath != "/" {
                         path = currentPath
                     }
+                    
+                    if currentPath == "/", splittedArgument.count < 3 {
+                        path = "/"
+                    }
+                    
                     for index in 1..<splittedArgument.count-1 {
                         path += "/\(splittedArgument[index])"
                     }
@@ -677,6 +758,10 @@ public class Terminal {
                         path = currentPath
                     } else {
                         path = getParentFolderPath(from: currentPath)
+                        
+                        if path == "/", splittedArgument.count > 2 {
+                            path = ""
+                        }
                     }
                     for index in 1..<splittedArgument.count-1 {
                         path += "/\(splittedArgument[index])"
@@ -698,8 +783,19 @@ public class Terminal {
                 folderName = String(splitted.last!)
                 
             default:
-                folderName = argument
+                let splitted = argument.split(separator: "/")
+                
+                if splitted.count < 1 {
+                    return "rm -rf: illegal usage\nusage: rm [-rf] [directory/file]"
+                }
+                
                 path = currentPath
+                
+                for index in 0..<splitted.count-1 {
+                    path += "/\(splitted[index])"
+                }
+                
+                folderName = String(splitted.last!)
             }
             
             if let directory = paths[path] {
@@ -740,7 +836,7 @@ public class Terminal {
     
     private func cat(with arguments: [String]) -> String? {
         if arguments.count != 1 {
-            return "cat: invalid usage"
+            return "cat: invalid usage\nusage: cat [path/file]"
         }
         
         let argument = String(arguments[0])
@@ -763,11 +859,10 @@ public class Terminal {
                 if currentPath != "/" {
                     path = currentPath
                 }
-                for index in 1..<splittedArgument.count-1 {
-                    path += "/\(splittedArgument[index])"
-                }
                 
-                fileName = String(splittedArgument.last!)
+                if currentPath == "/", splittedArgument.count < 3 {
+                    path = "/"
+                }
                 
             case "..":
                 
@@ -775,16 +870,22 @@ public class Terminal {
                     path = currentPath
                 } else {
                     path = getParentFolderPath(from: currentPath)
+                    
+                    if path == "/", splittedArgument.count > 2 {
+                        path = ""
+                    }
+                    
                 }
-                for index in 1..<splittedArgument.count-1 {
-                    path += "/\(splittedArgument[index])"
-                }
-                
-                fileName = String(splittedArgument.last!)
                 
             default:
                 return "cat: \(argument): no such file or directory"
             }
+            
+            for index in 1..<splittedArgument.count-1 {
+                path += "/\(splittedArgument[index])"
+            }
+            
+            fileName = String(splittedArgument.last!)
             
         case "/":
             let splitted = argument.split(separator: "/")
@@ -796,8 +897,20 @@ public class Terminal {
             fileName = String(splitted.last!)
             
         default:
-            fileName = argument
+            let splitted = argument.split(separator: "/")
+            
+            if splitted.count < 1 {
+                return "cat: \(argument): invalid name of a file"
+            }
+            
             path = currentPath
+            
+            for index in 0..<splitted.count-1 {
+                path += "/\(splitted[index])"
+            }
+            
+            fileName = String(splitted.last!)
+    
         }
         
         if let directory = paths[path] {
@@ -820,7 +933,7 @@ public class Terminal {
     
     private func swift(with arguments: [String]) -> String? {
         if arguments.count != 1 {
-            return "swift: too many arguments"
+            return "swift: invalid usage\nusage: swift [path/file]"
         }
         
         let argument = String(arguments[0])
@@ -843,6 +956,11 @@ public class Terminal {
                 if currentPath != "/" {
                     path = currentPath
                 }
+                
+                if currentPath == "/", splittedArgument.count < 3 {
+                    path = "/"
+                }
+                
                 for index in 1..<splittedArgument.count-1 {
                     path += "/\(splittedArgument[index])"
                 }
@@ -855,6 +973,11 @@ public class Terminal {
                     path = currentPath
                 } else {
                     path = getParentFolderPath(from: currentPath)
+                    
+                    if path == "/", splittedArgument.count > 2 {
+                        path = ""
+                    }
+                    
                 }
                 for index in 1..<splittedArgument.count-1 {
                     path += "/\(splittedArgument[index])"

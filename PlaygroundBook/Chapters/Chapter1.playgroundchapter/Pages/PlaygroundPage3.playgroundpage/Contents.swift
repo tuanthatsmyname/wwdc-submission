@@ -27,7 +27,7 @@ import PlaygroundSupport
  
  Example 2: `ls -l /Volumes`
  
- Option `-l` with command `ls `will display list of all files and directories with additional detailed information. Options are optional, and every command has different options.
+ Option `-l` of a command `ls` will display list of all files and directories with additional detailed information. Options are optional, and every command has different options.
  
  ## Reading an Output
  
@@ -37,16 +37,16 @@ import PlaygroundSupport
  
  ###
  
- 1 column specifies the permissions of the file. In our Terminal it specifies the type - `d` for directories and `f` for files.
- 2 column specifies number of links that are connected.
- 3 column specifies the owner of the file/directory.
- 4 column specifies user group that the owner belongs to.
- 5 column specifies the size.
- 6 column specifies the date of the last modification.
- 7 column specifies the time of the last modification.
- 8 column sepcifies the name.
+ 1. column specifies the permissions of the file. In our terminal it specifies the type - `d` for directories and `f` for files.
+ 2. column specifies number of links that are connected.
+ 3. column specifies the owner of the file/directory.
+ 4. column specifies user group that the owner belongs to.
+ 5. column specifies the size.
+ 6. column specifies the date of the last modification.
+ 7. column specifies the time of the last modification.
+ 8. column sepcifies the name.
  
-  ## Practice Time
+ ## Practice Time
  
  **Try this:**
  ###

@@ -18,26 +18,26 @@ import PlaygroundSupport
  
  ###
  
- * **Working directory** is a directory that a user is currently in. In our case the absolute path of the working directory is shown in the prompt. You can use relative paths `.` or `./` as well.
+ * **Working directory** is a directory that a user is currently in. In our case the absolute path of the working directory is shown in the prompt. Working directory can be represented with relative paths `.` or `./` as well.
  * **Root directory** is a highest directory in the hierarchy. There is no other directory above that level. The absoluthe path is `/`.
- * **Home directory** is a directory of a user. In our case the absolute path to the home directory is "/Users/username".
+ * **Home directory** is a directory of a user. In our case the absolute path to the home directory is `/Users/username"`.
  
  ## Paths and hierarchy
  
- Paths are are used to tell the command the location of a file or a directory that will be used for the execution. It is a specification based on the hierarchy. Every level is separated by `/`.
+ Paths are are used to tell the command the location of a file or a directory that will be used for the execution. It is a specification of a location based on the hierarchy. Every level is separated by `/`.
  
- Example: /Users/username/Desktop
+ Example: `/Users/username/Desktop`
  
- The given example tells the command how to get to the directory "Desktop". First the command has to start with the root folder, then navigate to the directory "Users", in which we can find the directory "username". Finally directory "Desktop" can be found in the directory "username".
+ The given example tells the command how to get to the directory `Desktop`. Firstly the command has to start with the root folder, then navigate to the directory `Users`, in which we can find the directory `username`. Finally directory `Desktop` can be found in the directory `username`.
  
  There are different ways how to pass a path to commands:
  
  ###
- * `cd ./Desktop` or `cd Desktop` are relative paths that are related to the current working directory. Both examples are meant to change the working directory to the directory called "Desktop" that is in the current working directory. Both `.` and `./` mean working directory. Usually the working directory does not have to be specified: `cd Desktop` is the same like `cd ./Desktop`.
+ * `cd ./Desktop` or `cd Desktop` are relative paths that are related to the current working directory. Both examples are meant to change the working directory to the directory called `Desktop` that is in the current working directory. Both `.` and `./` mean working directory. Usually the working directory does not have to be specified: `cd Desktop` is the same like `cd ./Desktop`.
  
- * `cd /Users/user/Desktop` is an absolute path. The hierarchy of directories starts with directory "/" called "root". `cd /` would mean that the working directory is being changed to the highest directory in the hierarchy.
+ * `cd /Users/user/Desktop` is an absolute path. The hierarchy of directories starts with directory `/` called "root". `cd /` would mean that the working directory is being changed to the root directory.
  
- * `cd ..` is a relative path with special directory name "..". `cd ..` or `cd ../` would mean that the working directory is being changed to the directory that the current directory is in.
+ * `cd ..` is a relative path with special directory name `..`. `cd ..` or `cd ../` would mean that the working directory is being changed to the directory that the current directory is in.
  
  ## Practice Time
  

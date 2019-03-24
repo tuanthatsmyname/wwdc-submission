@@ -21,7 +21,7 @@ public enum Font {
  
  **Fear not, it’s really not that difficult to use. You will see after finishing this Playground!**
  
- ## Anatomy Of The Terminal
+ ## Anatomy of the Terminal
  
  ###
  

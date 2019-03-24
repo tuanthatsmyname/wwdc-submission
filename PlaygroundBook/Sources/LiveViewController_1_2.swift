@@ -44,7 +44,6 @@ public class LiveViewController_1_2: LiveViewController {
 
     }
     
-    // TODO: load history
     private func showPrompt() {
         
         if let terminalHistory = DataManager.loadTerminalHistory() {
