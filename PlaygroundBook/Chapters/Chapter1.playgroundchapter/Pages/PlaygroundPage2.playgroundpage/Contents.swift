@@ -7,23 +7,30 @@ import PlaygroundSupport
 //#-end-hidden-code
 
 /*:
- # Get some help, man!
+ # Get Some Help, Man!
  
  Learning nowadays is very simple and fast thanks to the internet. But how did people learn, when there was no internet?! **THEY READ MANUALS!**
  
- That is why most of the commands have manual pages. To read those pages use the `man` command and pass a name of a command that you would like to know more about as an argument.
+ That is why most of the commands have manual pages. To read manual pages use the `man` command and pass a name of a command as an argument.
  
  You are going to learn more commands, so what about reading a manual before using a new command?
  
- ## Executing commands
+ ## Executing Commands
  
- Executing terminal commands in this Playground is very simple. Just set the variable `command` with your terminal command as a `String` and run the code. For example: `let command: String = "man man"`.
+ Executing terminal commands in this Playground is very simple. Just set the variable `command` with your terminal command as a `String` and run the code.
  
- **Let's read a manual page for the command `man`**.
+ For example: `let command: String = "man man"`, if you want to execute `man man` in the Terminal.
+ 
+ **Try this:**
+ 
+ ###
+ 
+ 1. Execute command `man` to see what commands are available.
+ 2. Open manual pages of `man` or any other commands.
  
  */
 
-let command: String = /*#-editable-code*//*#-end-editable-code*/
+let command: String = /*#-editable-code*/""/*#-end-editable-code*/
 
 //#-hidden-code
 

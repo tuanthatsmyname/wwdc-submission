@@ -351,7 +351,7 @@ public class Terminal {
                 let splittedArgument = argument.split(separator: "/")
                 
                 if splittedArgument.count < 2 {
-                    return "cd: \(argument): No such file or directory"
+                    return "cd: \(argument): No such file or directory1"
                 }
                 
                 switch String(splittedArgument[0]) {
@@ -360,13 +360,11 @@ public class Terminal {
                         path = currentPath
                     }
                 case "..":
-                    if currentPath == "/" {
-                        path = currentPath
-                    } else {
+                    if currentPath != "/" {
                         path = getParentFolderPath(from: currentPath)
                     }
                 default:
-                    return "cd: \(argument): No such file or directory"
+                    return "cd: \(argument): No such file or directory2"
                 }
                 
                 for index in 1..<splittedArgument.count {
@@ -374,16 +372,23 @@ public class Terminal {
                 }
                 
             case "/":
-                break
+                let splittedArgument = argument.split(separator: "/")
+                for index in 0..<splittedArgument.count {
+                    path += "/\(splittedArgument[index])"
+                }
             default:
-                path = currentPath + "/" + argument
+                if currentPath == "/" {
+                    path = "/" + argument
+                } else {
+                    path = currentPath + "/" + argument
+                }
             }
             
             if paths[path] != nil {
                 currentPath = path
                 return nil
             } else {
-                return "cd: \(argument): No such file or directory"
+                return "cd: \(path): No such file or directory3"
             }
             
         }

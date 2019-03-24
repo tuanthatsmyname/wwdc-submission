@@ -40,7 +40,7 @@ public class LiveViewController_1_2: LiveViewController {
         view.backgroundColor = terminalSettings.backgroundColor
         terminalTextView.backgroundColor = .clear
         terminalTextView.isEditable = false
-        terminalTextView.isUserInteractionEnabled = false
+//        terminalTextView.isUserInteractionEnabled = false
 
     }
     

@@ -16,7 +16,7 @@ public class LiveViewController_1_1: LiveViewController {
     var terminalSettings: TerminalSettings!
     var timer: Timer!
     // TODO: check the text with someone
-    var resultString = "Hi there, welcome to my Playground! Let's choose your own terminal settings and we can start!"
+    var resultString = "Hi there, let's choose your own terminal settings and start!"
     
     public override func viewDidLoad() {
         super.viewDidLoad()

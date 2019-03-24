@@ -1,20 +1,32 @@
+//#-code-completion(everything, hide)
 //#-hidden-code
 
 import Foundation
+import PlaygroundSupport
+
 
 //#-end-hidden-code
 
 /*:
  
- # Create a new file
+ # Creating A New File
  
- Creating a new file is easy with the command `touch`. All you have to do is pass it a path with a file name as an argument. For example: `touch ./newFile.txt` will create a file called newFile.txt in the current working directory. But you can create files whenever you want to, if the directory exists!
+ To create a new file use command `touch` and pass a path and a name of the new file as an argument.
  
- **Try to create a new file in a directory of your choice called "test.txt".**
+ For example: `touch ./newFile.txt`
+ 
+ The given example will create a file called "newFile.txt" in the current working directory.
+ 
+ ***Try this:***
+ 
+ ###
+ 
+ 1. Navigate to a directory of your choice.
+ 2. Create a new file called "test.txt".
  
  */
 
-let command: String = /*#-editable-code*//*#-end-editable-code*/
+let command: String = /*#-editable-code*/""/*#-end-editable-code*/
     
 //#-hidden-code
     

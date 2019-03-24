@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ntq-wZ-OEt">
-                                <rect key="frame" x="20" y="90" width="335" height="507"/>
+                                <rect key="frame" x="20" y="90" width="335" height="497"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -29,7 +29,7 @@
                         <constraints>
                             <constraint firstItem="qaR-nP-dw0" firstAttribute="trailing" secondItem="Ntq-wZ-OEt" secondAttribute="trailing" constant="20" id="7Lf-ZM-iDs"/>
                             <constraint firstItem="Ntq-wZ-OEt" firstAttribute="leading" secondItem="qaR-nP-dw0" secondAttribute="leading" constant="20" id="DSy-AO-hjw"/>
-                            <constraint firstItem="qaR-nP-dw0" firstAttribute="bottom" secondItem="Ntq-wZ-OEt" secondAttribute="bottom" constant="70" id="TjS-lh-3bq"/>
+                            <constraint firstItem="qaR-nP-dw0" firstAttribute="bottom" secondItem="Ntq-wZ-OEt" secondAttribute="bottom" constant="80" id="TjS-lh-3bq"/>
                             <constraint firstItem="Ntq-wZ-OEt" firstAttribute="top" secondItem="qaR-nP-dw0" secondAttribute="top" constant="70" id="aEE-x2-SMp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qaR-nP-dw0"/>

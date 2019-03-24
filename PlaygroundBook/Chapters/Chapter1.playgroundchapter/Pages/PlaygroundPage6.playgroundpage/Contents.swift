@@ -1,19 +1,31 @@
+//#-code-completion(everything, hide)
 //#-hidden-code
 
 import Foundation
+import PlaygroundSupport
+
 
 //#-end-hidden-code
 
 /*:
- # Create a new directory
+ # Creating A New Directory
  
- Creating a new directory is as easy as creating a new file. The command `mkdir`, short for "make directory", with a path and name of the directory, will create a new directory. You need to pass a path that exists, otherwise the comman won't be successfull. For example: `mkdir ./tmp/newFolder` will create a new folder called "newFolder" in the folder called "tmp" that is in the current directory.
+ Creating a new directory is as easy as creating a new file. Use command `mkdir` (short for "make directory") with a path and a name as an argument to create a new directory.
  
- **Let's create a new directory called "tmp" in a current working directory!**
+ For example: `mkdir ./tmp/newFolder`
+ 
+ The given example will create a new directory called "newFolder" in the directory "tmp" that is in the current working directory.
+ 
+ **Try this:**
+ 
+ ###
+ 
+ 1. Navigate to your home directory.
+ 2. Create a new directory called "tmp".
  
  */
 
-let command: String = /*#-editable-code*//*#-end-editable-code*/
+let command: String = /*#-editable-code*/""/*#-end-editable-code*/
     
 //#-hidden-code
 
