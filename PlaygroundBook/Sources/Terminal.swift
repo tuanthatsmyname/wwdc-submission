@@ -43,8 +43,7 @@ public class Terminal {
         
         // no command was given by the user
         if splittedCommand.count == 0 {
-            // TODO: add another text for MAN
-            return "command not found"
+            return "command not found\nrun man to see all of the available commands"
         }
         
         // command given by the user
@@ -75,8 +74,7 @@ public class Terminal {
         case Commands.man.rawValue:
             return man(with: arguments)
         default:
-            // TODO: add another text for MAN
-            return "\(command): command not found"
+            return "\(command): command not found\nrun man to see all of the available commands"
         }
         
     }
@@ -127,10 +125,6 @@ public class Terminal {
     }
     
     private func listAllTerminalElementsWithDetails(from directory: [TerminalElement]) -> String {
-        // TODO: delete comments if the method works
-        //        for terminalElement in directory {
-        //            print(terminalElement.print())
-        //        }
         
         var output = ""
         for index in 0..<directory.count {
@@ -549,7 +543,6 @@ public class Terminal {
                  return "mkdir: \(newFolderName): directory already exists"
             }
         } else {
-            // TODO: print in the terminal
             return "mkdir: \(newFolderName): invalid name of a directory\nusage: mkdir [name]"
         }
         
@@ -746,7 +739,6 @@ public class Terminal {
     }
     
     private func cat(with arguments: [String]) -> String? {
-        // TODO: rewrite the string
         if arguments.count != 1 {
             return "cat: invalid usage"
         }
@@ -896,8 +888,19 @@ public class Terminal {
         
     }
     
-    // TODO
     private func man(with arguments: [String]) -> String {
+        if arguments.count == 0 {
+            let ls = "ls -- list directory contents"
+            let cd = "cd -- change directory"
+            let touch = "touch -- create a file"
+            let mkdir = "mkdir -- create a directory"
+            let rm = "rm -- remove file or directory"
+            let cat = "cat -- print files"
+            let swift = "swift -- execute a swift program"
+            let man = "man -- print manual pages"
+            return "\(ls)\n\(cd)\n\(touch)\n\(mkdir)\n\(rm)\n\(cat)\n\(swift)\n\(man)"
+        }
+        
         if arguments.count != 1 {
             return "man: too many arguments\nusage: man [command]"
         }
@@ -905,22 +908,22 @@ public class Terminal {
         let command = arguments[0]
         
         switch command {
-        case "man":
-            return ""
         case "ls":
-            return ""
+            return "ls -- list directory contents\nusage: ls [-l] [path/directory]"
         case "cd":
-            return ""
+            return "cd -- change directory\nusage: cd [path/directory]"
         case "touch":
-            return ""
+            return "touch -- create a file\nusage: touch [path/newFile]"
         case "mkdir":
-            return ""
+            return "mkdir -- create a directory\nusage: mkdir [path/newDirectory]"
         case "rm":
-            return ""
+            return "rm -- remove file or directory\nusage: rm [-rf] [path]"
         case "cat":
-            return ""
+            return "cat -- print files\nusage: cat [path/file]"
         case "swift":
-            return ""
+            return "swift -- execute a swift program\nusage: swift [path/file]"
+        case "man":
+            return "man -- print manual pages\nusage: man [command]"
         default:
             return "man: \(command): no such command"
         }

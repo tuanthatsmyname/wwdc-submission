@@ -18,7 +18,8 @@ import PlaygroundSupport
  ###
  
  1. Navigate to "/Volumes/MacintoshHD".
- 2. Print the content of a file that is in the directory.
+ 2. Check what file is in the directory.
+ 2. Print the content of that file.
  3. Be happy.
  
  */
@@ -30,7 +31,7 @@ let command = /*#-editable-code*/""/*#-end-editable-code*/
 sendValue(.data(try NSKeyedArchiver.archivedData(withRootObject: command, requiringSecureCoding: true)))
 
 switch command {
-case "cat ./messageWithLove.txt" || "cat messageWithLove.txt":
+case "cat ./messageWithLove.txt", "cat messageWithLove.txt":
     PlaygroundPage.current.assessmentStatus = .pass(message: "You are almost done, move on to the [**next page**](@next) and enjoy the ride!")
 default:
     break

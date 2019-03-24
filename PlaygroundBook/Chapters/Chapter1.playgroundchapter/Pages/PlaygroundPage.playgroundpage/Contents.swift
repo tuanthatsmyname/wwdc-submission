@@ -26,7 +26,7 @@ public enum Font {
  ###
  
  * **Console** is the system as a whole.
- * **Command line** is the line where you type the command.
+ * **Command line** is a line where you type the command.
  * **Prompt** is a beginning of a command line. It provides some information. In our case the prompt consists of a **computer name and current working directory**.
  * **Terminal** is the interface of a console.
  
@@ -41,6 +41,8 @@ public enum Font {
  * `ls` is the program.
  * `-l` is an option that changes the output of the program.
  * `./Desktop` is an argument of the program.
+ 
+ Commands that are executed successfully do not print any output, if the command is not supposed to print an output. If the command was executed unsuccessfully the error will be printed in the terminal.
  
  ## Setting Up The Terminal
  

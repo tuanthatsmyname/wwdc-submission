@@ -7,21 +7,33 @@ import PlaygroundSupport
 //#-end-hidden-code
 
 /*:
- # Deleting Files And Directories
+ # Deleting Files and Directories
  
  ## Deleting Files
  
  To delete a file use command `rm` (short for "remove") and pass a path to the file as an argument.
  
- Examples: `rm ./file.txt`
+ Example: `rm ./file.txt`
  
  ## Deleting Directories
  
- Deleting directories require usage of special options.
+ Deleting directories require usage of special options:
  
- Example: `rm -rf /`
+ ###
  
- Option `-r` deletes the whole hierarchy and option `-f` removes the files without prompting for confirmation. In the given example you would delete the root directory which means you would delete the whole Mac. **BE CAREFUL! NEVER DO THAT!**
+ * Option `-r` deletes the directory and the whole hierarchy below it.
+ * Option `-f` removes the files without prompting for confirmation.
+ 
+ ### More options
+ 
+ Adding two or more options to a command is simple. Either you specify every option separately or together as one option:
+
+ ###
+ 
+ * Example 1: `rm -r -f ./tmp`
+ * Example 2: `rm -rf ./tmp`
+
+ In both examples the directory "tmp" in the working directory and the whole hierarchy below it will be deleted.
  
  **Try this:**
  
@@ -32,7 +44,7 @@ import PlaygroundSupport
  
  */
 
-let command: String = /*#-editable-code*/""/*#-end-editable-code*/
+let command = /*#-editable-code*/""/*#-end-editable-code*/
     
 //#-hidden-code
     

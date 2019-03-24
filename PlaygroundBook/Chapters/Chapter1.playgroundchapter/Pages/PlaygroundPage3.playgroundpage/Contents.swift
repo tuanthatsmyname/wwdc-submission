@@ -9,25 +9,44 @@ import PlaygroundSupport
 /*:
  # What Do We Have Here?
  
- Use command `ls` (short for "list") to list names of all files and folders in the working directory.
+ Use command `ls` (short for "list") to list names of all files and directories in the working directory.
  
- If you want to list all of the files and folders in a different directory, pass a path to the directory as an argument.
+ Example: `ls`
  
- Example: `ls` or `ls /Volumes`
+ If you want to list all of the files and directories in a different directory, pass a path to the directory as an argument.
  
- Paths and directories are explained in the [**next page**](@next).
+ Example: `ls /Volumes`
+ 
+ In the given exmaple "/Volumes" is the path. Paths and directories are explained in the [**next page**](@next).
  
  ## Options
  
  An option modifies the way the program runs.
  
- For example: `ls -l` or `ls -l /Volumes`
+ Example 1: `ls -l`
  
- In the given example the option will display list of all files and directories with additional detailed information. Options are optional, and every command has different option.
+ Example 2: `ls -l /Volumes`
  
- ## Reading An Output Of `ls -l`
+ Option `-l` with command `ls `will display list of all files and directories with additional detailed information. Options are optional, and every command has different options.
  
+ ## Reading an Output
  
+ What do all of the lines from command `ls -l` mean? Let's find out! Every line is information of a file or a directory. Each information on the line is separated by a space.
+ 
+ Example: `d 1 username staff 256 03-24-19 12:01 Desktop`
+ 
+ ###
+ 
+ 1 column specifies the permissions of the file. In our Terminal it specifies the type - `d` for directories and `f` for files.
+ 2 column specifies number of links that are connected.
+ 3 column specifies the owner of the file/directory.
+ 4 column specifies user group that the owner belongs to.
+ 5 column specifies the size.
+ 6 column specifies the date of the last modification.
+ 7 column specifies the time of the last modification.
+ 8 column sepcifies the name.
+ 
+  ## Practice Time
  
  **Try this:**
  ###
@@ -37,7 +56,7 @@ import PlaygroundSupport
  
  */
 
-let command: String = /*#-editable-code*/""/*#-end-editable-code*/
+let command = /*#-editable-code*/""/*#-end-editable-code*/
     
 //#-hidden-code
     

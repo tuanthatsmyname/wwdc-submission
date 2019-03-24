@@ -21,6 +21,8 @@ import PlaygroundSupport
  
  For example: `let command: String = "man man"`, if you want to execute `man man` in the Terminal.
  
+ ## Practice Time
+ 
  **Try this:**
  
  ###
@@ -30,7 +32,7 @@ import PlaygroundSupport
  
  */
 
-let command: String = /*#-editable-code*/""/*#-end-editable-code*/
+let command = /*#-editable-code*/""/*#-end-editable-code*/
 
 //#-hidden-code
 

@@ -8,13 +8,13 @@ import PlaygroundSupport
 //#-end-hidden-code
 
 /*:
- # Creating A New Directory
+ # Creating a New Directory
  
  Creating a new directory is as easy as creating a new file. Use command `mkdir` (short for "make directory") with a path and a name as an argument to create a new directory.
  
  For example: `mkdir ./tmp/newFolder`
  
- The given example will create a new directory called "newFolder" in the directory "tmp" that is in the current working directory.
+ The given example will create a new directory called "newFolder" in the directory "tmp" that is in the current working directory. **You can not create a directory in a nonexistent directory.** Therefore the path that you pass as an argument to the command must exist.
  
  **Try this:**
  
@@ -25,7 +25,7 @@ import PlaygroundSupport
  
  */
 
-let command: String = /*#-editable-code*/""/*#-end-editable-code*/
+let command = /*#-editable-code*/""/*#-end-editable-code*/
     
 //#-hidden-code
 

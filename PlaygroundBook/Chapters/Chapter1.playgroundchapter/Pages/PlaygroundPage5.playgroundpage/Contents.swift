@@ -9,13 +9,13 @@ import PlaygroundSupport
 
 /*:
  
- # Creating A New File
+ # Creating a New File
  
  To create a new file use command `touch` and pass a path and a name of the new file as an argument.
  
  For example: `touch ./newFile.txt`
  
- The given example will create a file called "newFile.txt" in the current working directory.
+ The given example will create a file called "newFile.txt" in the current working directory. **You can not create a file in a nonexistent directory.** Therefore the path that you pass as an argument to the command must exist.
  
  ***Try this:***
  
@@ -26,7 +26,7 @@ import PlaygroundSupport
  
  */
 
-let command: String = /*#-editable-code*/""/*#-end-editable-code*/
+let command = /*#-editable-code*/""/*#-end-editable-code*/
     
 //#-hidden-code
     

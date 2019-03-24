@@ -9,9 +9,9 @@ import PlaygroundSupport
 /*:
  # Executing Swift Programs
  
- To execute Swift programs use command `swift` with a path to a Swift file as an argument.
+ To execute a Swift program use command `swift` with a path to a Swift file as an argument.
  
- For example: `swift ./hello.swift`
+ Example: `swift ./hello.swift`
  
  **Try this:**
  
